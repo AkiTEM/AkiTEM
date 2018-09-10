@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "52707992137",
+    "firebase_url": "https://aki-tem.firebaseio.com",
+    "project_id": "aki-tem",
+    "storage_bucket": "aki-tem.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:52707992137:android:78d3cf020e5edf51",
+        "android_client_info": {
+          "package_name": "com.company.akitem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "52707992137-sbg2ua4m7dbk6pp45hreeh6t6fnmbkbr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8NkROCH286B0XgyDvsQxCFcfjZR60Xvw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

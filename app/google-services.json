@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:52707992137:android:78d3cf020e5edf51",
         "android_client_info": {
-          "package_name": "com.company.akitem"
+          "package_name": "br.uninove.akitem"
         }
       },
       "oauth_client": [

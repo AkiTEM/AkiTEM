@@ -7,24 +7,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
-import br.uninove.akitem.R;
 import br.uninove.akitem.DAO.ConfiguracaoFirebase;
 import br.uninove.akitem.Entidades.Usuarios;
+import br.uninove.akitem.R;
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText edtEmail;
     private EditText edtSenha;
+    private ValueEventListener valueEventListener;
+    private DatabaseReference firebase;
+    private TextView tvAbreCadastro;
     private Button btnLogar;
     private FirebaseAuth autenticacao;
     private Usuarios usuarios;
+    private String idenficadorUsuario;
 
 
     @Override
@@ -35,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
 
         edtEmail = (EditText) findViewById(R.id.edtEmail);
         edtSenha = (EditText) findViewById(R.id.edtSenha);
+        tvAbreCadastro = (TextView) findViewById(R.id.tvAbreCadastro);
         btnLogar = (Button) findViewById(R.id.btnLogar);
 
         btnLogar.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +61,15 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+        tvAbreCadastro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abreCadastroUsuario();
+            }
+        });
+
+
     }
 
     private void validarLogin() {
@@ -62,19 +79,27 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
 
                     abrirTelaPrincipal();
                     Toast.makeText(LoginActivity.this, "Login efetuado com sucesso", Toast.LENGTH_SHORT).show();
-                }else {
+                } else {
                     Toast.makeText(LoginActivity.this, "Usuário ou senha inválidos", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
-    public void abrirTelaPrincipal(){
+    public void abrirTelaPrincipal() {
         Intent intentAbrirTelaPrincipal = new Intent(LoginActivity.this, PrincipalActivity.class);
         startActivity(intentAbrirTelaPrincipal);
     }
+
+
+    public void abreCadastroUsuario() {
+        Intent intent = new Intent(LoginActivity.this, CadastroActivity.class);
+        startActivity(intent);
+    }
+
+
 }

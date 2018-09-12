@@ -3,6 +3,8 @@ package br.uninove.akitem.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,11 +15,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
+import br.uninove.akitem.DAO.ConfiguracaoFirebase;
+import br.uninove.akitem.Fragment.FotosTelaInicialFragment;
 import br.uninove.akitem.R;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private Button btnAbrirActivityLogin;
+    private FirebaseAuth autenticacao;
+    private FotosTelaInicialFragment fotosTelaInicialFragment;
+    private FragmentManager fragmentManager;
+    private FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        verifaUsuarioLogado();
+
         btnAbrirActivityLogin = (Button) findViewById(R.id.btnFazerLogin);
 
         btnAbrirActivityLogin.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +56,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intentAbrirTelaLogin);
             }
         });
+
+        carregarFragmentTelaInicial();
     }
 
     @Override
@@ -101,5 +115,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    private void verifaUsuarioLogado() {
+        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+        if (autenticacao.getCurrentUser() != null) {
+            Intent intent = new Intent(MainActivity.this, PrincipalActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }
+
+
+    public void carregarFragmentTelaInicial(){
+        fotosTelaInicialFragment = new FotosTelaInicialFragment();
+
+        fragmentManager = getSupportFragmentManager();
+
+        fragmentTransaction = fragmentManager.beginTransaction();
+
+        fragmentTransaction.add(R.id.framLayoutTelaInicial, fotosTelaInicialFragment, "FragmentTelaInicial");
+
+        fragmentTransaction.commit();
+
     }
 }

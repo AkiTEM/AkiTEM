@@ -1,5 +1,17 @@
 package br.uninove.akitem.Entidades;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Exclude;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import br.uninove.akitem.DAO.ConfiguracaoFirebase;
+
+/**
+ * Created by Danielopes97 on 27/04/2017.
+ */
+
 public class Usuarios {
 
     private String id;
@@ -11,6 +23,28 @@ public class Usuarios {
     private String sexo;
 
     public Usuarios() {
+    }
+
+    public void salvar() {
+        DatabaseReference referenciaFirebase = ConfiguracaoFirebase.getFirebase();
+        referenciaFirebase.child("usuario").child(String.valueOf(getId())).setValue(this);
+    }
+
+    @Exclude
+
+    public Map<String, Object> toMap(){
+        HashMap<String, Object> hashMapUsuario = new HashMap<>();
+
+        hashMapUsuario.put("id", getId());
+        hashMapUsuario.put("email", getEmail());
+        hashMapUsuario.put("senha", getSenha());
+        hashMapUsuario.put("nome", getNome());
+        hashMapUsuario.put("sobrenome", getSobrenome());
+        hashMapUsuario.put("aniversario", getAniversario());
+        hashMapUsuario.put("sexo", getSexo());
+
+        return hashMapUsuario;
+
     }
 
     public String getId() {

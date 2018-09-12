@@ -4,15 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context="br.uninove.akitem.Activity.PrincipalActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/btnAddProduto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="TELA PRINCIPAL"
-        android:textSize="35sp"
-        android:textStyle="bold" />
+        android:text="ADD PRODUTO"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnVerProdutos"
+        android:layout_width="match_parent"
+        android:text="VER PRODUTOS"
+        android:layout_height="wrap_content" />
 </LinearLayout>

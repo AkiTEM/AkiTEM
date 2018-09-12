@@ -13,7 +13,6 @@
     tools:context="br.uninove.akitem.Activity.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-
     <TextView
         android:id="@+id/txtTitulo"
         android:layout_width="match_parent"
@@ -22,17 +21,16 @@
         android:text="PÁGINA INICIAL"
         android:textSize="25sp" />
 
-    <ImageView
+    <FrameLayout
+        android:id="@+id/framLayoutTelaInicial"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:src="@mipmap/carro" />
+        android:layout_height="wrap_content">
+    </FrameLayout>
 
     <Button
         android:id="@+id/btnFazerLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="fazer login" />
-
 
 </LinearLayout>

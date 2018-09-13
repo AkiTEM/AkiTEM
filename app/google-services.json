@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "52707992137",
-    "firebase_url": "https://aki-tem.firebaseio.com",
-    "project_id": "aki-tem",
-    "storage_bucket": "aki-tem.appspot.com"
+    "project_number": "584571080723",
+    "firebase_url": "https://akitem-f81c3.firebaseio.com",
+    "project_id": "akitem-f81c3",
+    "storage_bucket": "akitem-f81c3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:52707992137:android:78d3cf020e5edf51",
+        "mobilesdk_app_id": "1:584571080723:android:8e0c92f5f6da062e",
         "android_client_info": {
           "package_name": "br.uninove.akitem"
         }
       },
       "oauth_client": [
         {
-          "client_id": "52707992137-sbg2ua4m7dbk6pp45hreeh6t6fnmbkbr.apps.googleusercontent.com",
+          "client_id": "584571080723-g9d242iagcv97s1369186svjbha7ml4e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.uninove.akitem",
+            "certificate_hash": "be94ec86507474ad387648640a29999db2bb5226"
+          }
+        },
+        {
+          "client_id": "584571080723-d4vn9b3jbarchti1kqvgs7o8qevnni2d.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC8NkROCH286B0XgyDvsQxCFcfjZR60Xvw"
+          "current_key": "AIzaSyAf0dFj_0l_1aON6VFQPyLqpb6ZxHM_5mI"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "584571080723-d4vn9b3jbarchti1kqvgs7o8qevnni2d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

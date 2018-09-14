@@ -12,6 +12,12 @@
     android:orientation="vertical"
     tools:context="br.uninove.akitem.Activity.LoginActivity">
 
+    <ImageView
+        android:id="@+id/imagemFragmentFotos"
+        android:layout_width="209dp"
+        android:layout_height="248dp"
+        android:src="@mipmap/home" />
+
     <EditText
         android:id="@+id/edtEmail"
         android:layout_width="match_parent"

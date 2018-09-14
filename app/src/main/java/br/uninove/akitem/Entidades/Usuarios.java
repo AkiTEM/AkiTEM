@@ -8,10 +8,6 @@ import java.util.Map;
 
 import br.uninove.akitem.DAO.ConfiguracaoFirebase;
 
-/**
- * Created by Danielopes97 on 27/04/2017.
- */
-
 public class Usuarios {
 
     private String id;

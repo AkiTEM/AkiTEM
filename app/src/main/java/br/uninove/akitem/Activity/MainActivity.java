@@ -88,7 +88,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -117,7 +116,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-
     private void verifaUsuarioLogado() {
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
         if (autenticacao.getCurrentUser() != null) {
@@ -126,7 +124,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             finish();
         }
     }
-
 
     public void carregarFragmentTelaInicial(){
         fotosTelaInicialFragment = new FotosTelaInicialFragment();
@@ -138,6 +135,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.add(R.id.framLayoutTelaInicial, fotosTelaInicialFragment, "FragmentTelaInicial");
 
         fragmentTransaction.commit();
-
     }
 }

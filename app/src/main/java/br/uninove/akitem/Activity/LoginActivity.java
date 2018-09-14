@@ -33,12 +33,10 @@ public class LoginActivity extends AppCompatActivity {
     private Usuarios usuarios;
     private String idenficadorUsuario;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
 
         edtEmail = (EditText) findViewById(R.id.edtEmail);
         edtSenha = (EditText) findViewById(R.id.edtSenha);
@@ -61,15 +59,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
         tvAbreCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 abreCadastroUsuario();
             }
         });
-
-
     }
 
     private void validarLogin() {
@@ -100,6 +95,4 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(LoginActivity.this, CadastroActivity.class);
         startActivity(intent);
     }
-
-
 }

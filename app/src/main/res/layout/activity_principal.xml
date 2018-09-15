@@ -11,12 +11,12 @@
     <Button
         android:id="@+id/btnAddProduto"
         android:layout_width="match_parent"
-        android:text="Carrinho"
+        android:text="CARRINHO"
         android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/btnVerProdutos"
         android:layout_width="match_parent"
-        android:text="Pesquisar"
+        android:text="PESQUISAR"
         android:layout_height="wrap_content" />
 </LinearLayout>

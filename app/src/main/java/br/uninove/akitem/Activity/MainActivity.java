@@ -21,7 +21,7 @@ import br.uninove.akitem.DAO.ConfiguracaoFirebase;
 import br.uninove.akitem.Fragment.FotosTelaInicialFragment;
 import br.uninove.akitem.R;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
     private Button btnAbrirActivityLogin;
     private FirebaseAuth autenticacao;
@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        //NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        //navigationView.setNavigationItemSelectedListener(this);
 
         verifaUsuarioLogado();
 
@@ -85,36 +85,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        //if (id == R.id.action_settings) {
+        //    return true;
+        //}
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    //@SuppressWarnings("StatementWithEmptyBody")
+    //@Override
+    //public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
+    //    int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+    //    if (id == R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+    //    } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+    //    } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_manage) {
+    //    } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
+    //    } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+    //    } else if (id == R.id.nav_send) {
 
-        }
+    //    }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
+    //    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+    //    drawer.closeDrawer(GravityCompat.START);
+    //    return false;
+    //}
 
     private void verifaUsuarioLogado() {
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();

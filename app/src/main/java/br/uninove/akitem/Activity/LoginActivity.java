@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
 
                     abrirTelaPrincipal();
-                    Toast.makeText(LoginActivity.this, "Login efetuado com sucesso", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Login efetuado com sucesso!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(LoginActivity.this, "Usuário ou senha inválidos", Toast.LENGTH_SHORT).show();
                 }

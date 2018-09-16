@@ -43,7 +43,6 @@ public class PrincipalActivity extends AppCompatActivity {
         });
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -61,6 +60,11 @@ public class PrincipalActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_sair) {
             deslogarUsuario();
+        }
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            abreCadastroUsuario();
         }
 
         return super.onOptionsItemSelected(item);
@@ -83,5 +87,10 @@ public class PrincipalActivity extends AppCompatActivity {
         Intent intent = new Intent(PrincipalActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    public void abreCadastroUsuario() {
+        Intent intent = new Intent(PrincipalActivity.this, CadastroActivity.class);
+        startActivity(intent);
     }
 }

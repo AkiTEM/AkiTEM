@@ -90,7 +90,6 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intentAbrirTelaPrincipal);
     }
 
-
     public void abreCadastroUsuario() {
         Intent intent = new Intent(LoginActivity.this, CadastroActivity.class);
         startActivity(intent);

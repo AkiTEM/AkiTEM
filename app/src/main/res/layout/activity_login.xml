@@ -14,8 +14,8 @@
 
     <ImageView
         android:id="@+id/imagemFragmentFotos"
-        android:layout_width="209dp"
-        android:layout_height="248dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:src="@mipmap/home" />
 
     <EditText

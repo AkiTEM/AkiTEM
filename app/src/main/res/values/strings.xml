@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Aki TEM</string>
-    <string name="app_activity">Projeto Sistemas Móveis</string>
+    <!--<string name="app_activity">Projeto Sistemas Móveis</string>-->
+    <string name="app_activity"></string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

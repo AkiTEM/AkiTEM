@@ -31,6 +31,8 @@
         android:id="@+id/btnFazerLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="fazer login" />
+        android:text="fazer login"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
 
 </LinearLayout>

@@ -12,11 +12,15 @@
         android:id="@+id/btnAddProduto"
         android:layout_width="match_parent"
         android:text="CARRINHO"
-        android:layout_height="wrap_content" />
+        android:background="@color/colorPrimary"
+        android:layout_height="wrap_content"
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
 
     <Button
         android:id="@+id/btnVerProdutos"
         android:layout_width="match_parent"
         android:text="PESQUISAR"
-        android:layout_height="wrap_content" />
+        android:background="@color/colorPrimary"
+        android:layout_height="wrap_content"
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
 </LinearLayout>

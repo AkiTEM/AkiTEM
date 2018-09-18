@@ -47,12 +47,16 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!edtEmail.getText().toString().equals("") && !edtSenha.getText().toString().equals("")) {
+                    
+                    if (edtEmail.getText().toString().equals("admin") && edtSenha.getText().toString().equals("admin")) {
+                        cadastrarProdutos();
+                    } else {
+                        usuarios = new Usuarios();
+                        usuarios.setEmail(edtEmail.getText().toString());
+                        usuarios.setSenha(edtSenha.getText().toString());
 
-                    usuarios = new Usuarios();
-                    usuarios.setEmail(edtEmail.getText().toString());
-                    usuarios.setSenha(edtSenha.getText().toString());
-
-                    validarLogin();
+                        validarLogin();
+                    }
                 } else {
                     Toast.makeText(LoginActivity.this, "Preencha os campos de e-mail e senha!", Toast.LENGTH_SHORT).show();
                 }
@@ -93,5 +97,11 @@ public class LoginActivity extends AppCompatActivity {
     public void abreCadastroUsuario() {
         Intent intent = new Intent(LoginActivity.this, CadastroActivity.class);
         startActivity(intent);
+    }
+
+    private void cadastrarProdutos() {
+        Intent intent = new Intent(LoginActivity.this, CadastroProdutos.class);
+        startActivity(intent);
+        finish();
     }
 }

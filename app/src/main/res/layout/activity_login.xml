@@ -16,7 +16,7 @@
         android:id="@+id/imagemFragmentFotos"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:src="@mipmap/home" />
+        android:src="@mipmap/logo" />
 
     <EditText
         android:id="@+id/edtEmail"

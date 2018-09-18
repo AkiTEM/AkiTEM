@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!edtEmail.getText().toString().equals("") && !edtSenha.getText().toString().equals("")) {
-                    
+
                     if (edtEmail.getText().toString().equals("admin") && edtSenha.getText().toString().equals("admin")) {
                         cadastrarProdutos();
                     } else {

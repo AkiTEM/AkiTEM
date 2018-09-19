@@ -75,11 +75,11 @@ public class PrincipalActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void cadastrarProdutos() {
-        Intent intent = new Intent(PrincipalActivity.this, CadastroProdutos.class);
-        startActivity(intent);
-        finish();
-    }
+    //private void cadastrarProdutos() {
+    //    Intent intent = new Intent(PrincipalActivity.this, CadastroProdutos.class);
+    //    startActivity(intent);
+    //    finish();
+    //}
 
     private void verProdutos() {
         Intent intent = new Intent(PrincipalActivity.this, ProdutosActivity.class);

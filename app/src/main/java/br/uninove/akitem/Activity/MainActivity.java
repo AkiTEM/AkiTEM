@@ -38,11 +38,11 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar.setLogo(R.drawable.logo);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
+        //DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        //ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+        //        this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        //drawer.setDrawerListener(toggle);
+        //toggle.syncState();
 
         //NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         //navigationView.setNavigationItemSelectedListener(this);
@@ -62,22 +62,22 @@ public class MainActivity extends AppCompatActivity {
         carregarFragmentTelaInicial();
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
+    //@Override
+    //public void onBackPressed() {
+    //    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+    //    if (drawer.isDrawerOpen(GravityCompat.START)) {
+    //        drawer.closeDrawer(GravityCompat.START);
+    //    } else {
+    //        super.onBackPressed();
+    //    }
+    //}
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    //@Override
+    //public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+    //    getMenuInflater().inflate(R.menu.main, menu);
+    //    return true;
+    //}
 
     //@Override
     //public boolean onOptionsItemSelected(MenuItem item) {

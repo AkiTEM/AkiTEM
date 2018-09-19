@@ -63,13 +63,18 @@ public class PrincipalActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_sair) {
+        if (id == R.id.sair) {
             deslogarUsuario();
         }
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.settings) {
             abreCadastroUsuario();
+        }
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.carrinho) {
+            verProdutos();
         }
 
         return super.onOptionsItemSelected(item);

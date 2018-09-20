@@ -17,9 +17,8 @@ import br.uninove.akitem.R;
 public class PrincipalActivity extends AppCompatActivity {
 
     private FirebaseAuth usuarioFirebase;
-    //private Button btnAddProduto, btnVerProduto;
-    private Button btnVerProduto;
     private EditText edtMarca, edtProduto;
+    private Button btnVerProduto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +29,7 @@ public class PrincipalActivity extends AppCompatActivity {
 
         edtMarca = (EditText) findViewById(R.id.edtMarca);
         edtProduto = (EditText) findViewById(R.id.edtProduto);
-        //btnAddProduto = (Button) findViewById(R.id.btnAddProduto);
         btnVerProduto = (Button) findViewById(R.id.btnVerProdutos);
-
-        //btnAddProduto.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View view) {
-        //        cadastrarProdutos();
-        //    }
-        //});
 
         btnVerProduto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,12 +70,6 @@ public class PrincipalActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    //private void cadastrarProdutos() {
-    //    Intent intent = new Intent(PrincipalActivity.this, CadastroProdutos.class);
-    //    startActivity(intent);
-    //    finish();
-    //}
 
     private void verProdutos() {
         Intent intent = new Intent(PrincipalActivity.this, ProdutosActivity.class);

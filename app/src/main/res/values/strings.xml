@@ -1,16 +1,8 @@
 <resources>
     <string name="app_name">Aki TEM</string>
-    <!--<string name="app_activity">Projeto Sistemas Móveis</string>-->
     <string name="app_activity"></string>
-
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="carrinho">CARRINHO</string>
     <string name="settings">ALTERAR DADOS DA CONTA</string>
     <string name="sair">LOGOUT</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_main2">Main2Activity</string>
 </resources>

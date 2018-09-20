@@ -13,10 +13,6 @@ public class Usuarios {
     private String id;
     private String email;
     private String senha;
-    private String nome;
-    private String sobrenome;
-    private String aniversario;
-    private String sexo;
 
     public Usuarios() {
     }
@@ -27,20 +23,14 @@ public class Usuarios {
     }
 
     @Exclude
-
     public Map<String, Object> toMap(){
         HashMap<String, Object> hashMapUsuario = new HashMap<>();
 
         hashMapUsuario.put("id", getId());
         hashMapUsuario.put("email", getEmail());
         hashMapUsuario.put("senha", getSenha());
-        hashMapUsuario.put("nome", getNome());
-        hashMapUsuario.put("sobrenome", getSobrenome());
-        hashMapUsuario.put("aniversario", getAniversario());
-        hashMapUsuario.put("sexo", getSexo());
 
         return hashMapUsuario;
-
     }
 
     public String getId() {
@@ -65,37 +55,5 @@ public class Usuarios {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-    }
-
-    public String getAniversario() {
-        return aniversario;
-    }
-
-    public void setAniversario(String aniversario) {
-        this.aniversario = aniversario;
-    }
-
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
     }
 }

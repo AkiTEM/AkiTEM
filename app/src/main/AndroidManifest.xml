@@ -38,11 +38,6 @@
         <activity android:name=".Activity.CadastroActivity" />
         <activity android:name=".Activity.CadastroProdutos" />
         <activity android:name=".Activity.ProdutosActivity" />
-        <activity
-            android:name=".Activity.Main2Activity"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
     </application>
 
 </manifest>

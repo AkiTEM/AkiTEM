@@ -5,6 +5,17 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/textLocal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="18sp"
+        android:textColor="@color/colorPrimary"
+        android:text="Estabelecimento"
+        android:textSize="18dp" />
+
+    <TextView
         android:id="@+id/textViewLocal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,6 +26,17 @@
         android:textSize="18dp" />
 
     <TextView
+        android:id="@+id/textProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="18sp"
+        android:textColor="@color/colorPrimary"
+        android:text="Produto"
+        android:textSize="18dp" />
+
+    <TextView
         android:id="@+id/textViewProduto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +44,17 @@
         android:paddingRight="8dp"
         android:paddingTop="18sp"
         android:text="PRODUTO"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/textValor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="18sp"
+        android:textColor="@color/colorPrimary"
+        android:text="Valor"
         android:textSize="18dp" />
 
     <TextView

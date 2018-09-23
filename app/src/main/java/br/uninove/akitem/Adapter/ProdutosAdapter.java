@@ -41,7 +41,7 @@ public class ProdutosAdapter extends ArrayAdapter<Produtos> {
             Produtos produtos2 = produto.get(position);
             textViewLocal.setText(produtos2.getEstabaleciomento());
             textViewProduto.setText(produtos2.getProduto());
-            textViewValor.setText(Double.valueOf(produtos2.getValor()).toString());
+            textViewValor.setText("R$ " + Double.valueOf(produtos2.getValor()).toString().replace(".", ",").concat("0"));
         }
 
         return view;

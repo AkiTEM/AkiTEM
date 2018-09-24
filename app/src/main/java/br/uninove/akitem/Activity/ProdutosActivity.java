@@ -11,12 +11,13 @@ import android.widget.ListView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 import br.uninove.akitem.Adapter.ProdutosAdapter;
-import br.uninove.akitem.DAO.ConfiguracaoFirebase;
 import br.uninove.akitem.Entidades.Produtos;
 import br.uninove.akitem.R;
 
@@ -39,9 +40,14 @@ public class ProdutosActivity extends AppCompatActivity {
         adapter = new ProdutosAdapter(this, produtos);
         listView.setAdapter(adapter);
 
-        firebase = ConfiguracaoFirebase.getFirebase().child("Produtos");
+        //firebase = ConfiguracaoFirebase.getFirebase().child("Produtos");
+        Query query = FirebaseDatabase.getInstance().getReference("Produtos")
+                .orderByChild("marca")
+                .equalTo("HIKARI");
+        query.addListenerForSingleValueEvent(valueEventListenerProdutos);
 
-        valueEventListenerProdutos = new ValueEventListener() {
+        ValueEventListener valueEventListenerProdutos = new ValueEventListener() {
+        //valueEventListenerProdutos = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 produtos.clear();

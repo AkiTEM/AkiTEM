@@ -31,6 +31,14 @@
           }
         },
         {
+          "client_id": "584571080723-ig6g91esamlkki38mh9jlf972tteca4c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.uninove.akitem",
+            "certificate_hash": "74fd1b8659b3a54bb09429141231f04dda600e56"
+          }
+        },
+        {
           "client_id": "584571080723-d4vn9b3jbarchti1kqvgs7o8qevnni2d.apps.googleusercontent.com",
           "client_type": 3
         }

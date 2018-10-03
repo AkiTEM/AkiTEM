@@ -31,13 +31,10 @@ public class PrincipalActivity extends AppCompatActivity {
         edtProduto = (EditText) findViewById(R.id.edtProduto);
         btnVerProduto = (Button) findViewById(R.id.btnVerProdutos);
 
-        final String marca = edtMarca.getText().toString();
-        final String produto = edtProduto.getText().toString();
-
         btnVerProduto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                verProdutos(marca, produto);
+                verProdutos();
             }
         });
     }
@@ -68,16 +65,19 @@ public class PrincipalActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.carrinho) {
-            verProdutos("", "");
+            verProdutos();
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private void verProdutos(String marca, String produto) {
+    private void verProdutos() {
+        edtMarca = (EditText) findViewById(R.id.edtMarca);
+        edtProduto = (EditText) findViewById(R.id.edtProduto);
+
         Intent intent = new Intent(PrincipalActivity.this, ProdutosActivity.class);
-        intent.putExtra("marca", marca);
-        intent.putExtra("produto", produto);
+        intent.putExtra("marca", edtMarca.getText().toString());
+        intent.putExtra("produto", edtProduto.getText().toString());
         startActivity(intent);
         finish();
     }

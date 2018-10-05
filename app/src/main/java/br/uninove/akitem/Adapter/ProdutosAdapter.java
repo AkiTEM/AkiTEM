@@ -48,15 +48,15 @@ public class ProdutosAdapter extends ArrayAdapter<Produtos> {
 
             String estabelecimento = produtos.getEstabaleciomento();
 
-            if (estabelecimento.equals(Estabelecimento.ASSAI)) {
+            if ("ASSAI".equals(estabelecimento)) {
                 imagem.setImageResource(R.drawable.assai);
-            } else if (estabelecimento.equals(Estabelecimento.ATACADÃO)) {
+            } else if ("ATACADAO".equals(estabelecimento)) {
                 imagem.setImageResource(R.drawable.atacadao);
-            } else if (estabelecimento.equals(Estabelecimento.CARREFOUR)) {
+            } else if ("CARREFOUR".equals(estabelecimento)) {
                 imagem.setImageResource(R.drawable.carrefour);
-            } else if (estabelecimento.equals(Estabelecimento.EXTRA)) {
+            } else if ("EXTRA".equals(estabelecimento)) {
                 imagem.setImageResource(R.drawable.extra);
-            } else if (estabelecimento.equals(Estabelecimento.ROLDÃO)) {
+            } else if ("ROLDAO".equals(estabelecimento)) {
                 imagem.setImageResource(R.drawable.roldao);
             }
         }

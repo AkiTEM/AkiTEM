@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -78,8 +79,12 @@ public class PrincipalActivity extends AppCompatActivity {
         Intent intent = new Intent(PrincipalActivity.this, ProdutosActivity.class);
         intent.putExtra("marca", edtMarca.getText().toString());
         intent.putExtra("produto", edtProduto.getText().toString());
-        startActivity(intent);
-        finish();
+
+        if (!edtMarca.getText().toString().isEmpty() || !edtProduto.getText().toString().isEmpty()) {
+            startActivity(intent);
+            finish();
+        } else
+            Toast.makeText(PrincipalActivity.this, "Preencha os campos de PRODUTO e/ou MARCA!", Toast.LENGTH_SHORT).show();
     }
 
     private void deslogarUsuario() {

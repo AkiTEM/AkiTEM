@@ -59,7 +59,8 @@ public class CadastroActivity extends AppCompatActivity {
                     } else {
                         Toast.makeText(CadastroActivity.this, "As senhas não são correspondentes", Toast.LENGTH_LONG).show();
                     }
-                }
+                } else
+                    Toast.makeText(CadastroActivity.this, "Favor preencher os campos para cadastro", Toast.LENGTH_LONG).show();
             }
         });
     }

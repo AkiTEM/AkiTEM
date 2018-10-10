@@ -47,7 +47,7 @@ public class CadastroProdutos extends AppCompatActivity {
                 if (!edtEstabelecimento.getText().toString().isEmpty() && !edtMarca.getText().toString().isEmpty() && !edtProduto.getText().toString().isEmpty() && !edtValor.getText().toString().isEmpty()) {
                     salvarProduto(produtos);
                 } else
-                    Toast.makeText(CadastroProdutos.this, "Favor preencher todos os campos!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CadastroProdutos.this, "Favor preencher todos os campos", Toast.LENGTH_LONG).show();
             }
         });
 

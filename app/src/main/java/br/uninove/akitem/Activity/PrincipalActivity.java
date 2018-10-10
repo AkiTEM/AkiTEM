@@ -84,7 +84,7 @@ public class PrincipalActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         } else
-            Toast.makeText(PrincipalActivity.this, "Preencha os campos de PRODUTO e/ou MARCA!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(PrincipalActivity.this, "Favor preencher os campos para busca", Toast.LENGTH_SHORT).show();
     }
 
     private void deslogarUsuario() {

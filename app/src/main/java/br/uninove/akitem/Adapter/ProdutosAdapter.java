@@ -46,18 +46,21 @@ public class ProdutosAdapter extends ArrayAdapter<Produtos> {
             textViewProduto.setText(produtos.getProduto());
             textViewValor.setText("R$ " + Double.valueOf(produtos.getValor()).toString().replace(".", ",").concat("0"));
 
-            String estabelecimento = produtos.getEstabaleciomento();
+            String estabelecimento = produtos.getEstabaleciomento().toUpperCase();
 
-            if ("ASSAI".equals(estabelecimento)) {
-                imagem.setImageResource(R.drawable.assai);
-            } else if ("ATACADAO".equals(estabelecimento)) {
-                imagem.setImageResource(R.drawable.atacadao);
-            } else if ("CARREFOUR".equals(estabelecimento)) {
-                imagem.setImageResource(R.drawable.carrefour);
-            } else if ("EXTRA".equals(estabelecimento)) {
-                imagem.setImageResource(R.drawable.extra);
-            } else if ("ROLDAO".equals(estabelecimento)) {
-                imagem.setImageResource(R.drawable.roldao);
+            if (!estabelecimento.isEmpty()) {
+
+                if ("ASSAI".equals(estabelecimento)) {
+                    imagem.setImageResource(R.drawable.assai);
+                } else if ("ATACADAO".equals(estabelecimento)) {
+                    imagem.setImageResource(R.drawable.atacadao);
+                } else if ("CARREFOUR".equals(estabelecimento)) {
+                    imagem.setImageResource(R.drawable.carrefour);
+                } else if ("EXTRA".equals(estabelecimento)) {
+                    imagem.setImageResource(R.drawable.extra);
+                } else if ("ROLDAO".equals(estabelecimento)) {
+                    imagem.setImageResource(R.drawable.roldao);
+                }
             }
         }
 

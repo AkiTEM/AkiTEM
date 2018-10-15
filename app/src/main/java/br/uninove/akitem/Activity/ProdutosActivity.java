@@ -74,14 +74,14 @@ public class ProdutosActivity extends AppCompatActivity {
                         tamMarca2 = produtosNovo.getMarca().length();
                         if (tamMarca > tamMarca2)
                             tamMarca = tamMarca2;
-                        valueMarca = produtosNovo.getMarca().substring(0,tamMarca);
+                            valueMarca = produtosNovo.getMarca().substring(0,tamMarca);
 
                     if (!"".equals(produto))
                         tamProduto = produto.length();
                         tamProduto2 = produtosNovo.getProduto().length();
                         if (tamProduto > tamProduto2)
                             tamProduto = tamProduto2;
-                        valueProduto = produtosNovo.getProduto().substring(0,tamProduto);
+                            valueProduto = produtosNovo.getProduto().substring(0,tamProduto);
 
                     if (!"".equals(marca) && !"".equals(produto)) {
                         if (valueMarca.toUpperCase().equals(marca) && valueProduto.toUpperCase().equals(produto))

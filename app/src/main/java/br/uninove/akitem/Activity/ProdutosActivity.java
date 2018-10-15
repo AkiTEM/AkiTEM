@@ -55,24 +55,43 @@ public class ProdutosActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 produtos.clear();
+
                 boolean first;
+                int tamMarca = 1;
+                int tamMarca2;
+                int tamProduto = 1;
+                int tamProduto2;
+                String valueMarca;
+                String valueProduto;
 
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     Produtos produtosNovo = dados.getValue(Produtos.class);
 
                     first = false;
 
+                    if (!"".equals(marca))
+                        tamMarca = marca.length();
+                        tamMarca2 = produtosNovo.getMarca().length();
+                        if (tamMarca > tamMarca2)
+                            tamMarca = tamMarca2;
+                        valueMarca = produtosNovo.getMarca().substring(0,tamMarca);
+
+                    if (!"".equals(produto))
+                        tamProduto = produto.length();
+                        tamProduto2 = produtosNovo.getProduto().length();
+                        if (tamProduto > tamProduto2)
+                            tamProduto = tamProduto2;
+                        valueProduto = produtosNovo.getProduto().substring(0,tamProduto);
+
                     if (!"".equals(marca) && !"".equals(produto)) {
-                        if (produtosNovo.getMarca().toUpperCase().equals(marca) && produtosNovo.getProduto().toUpperCase().equals(produto))
+                        if (valueMarca.toUpperCase().equals(marca) && valueProduto.toUpperCase().equals(produto))
                             first = true;
                     } else if (!"".equals(marca)) {
-                        if (produtosNovo.getMarca().toUpperCase().equals(marca))
+                        if (valueMarca.toUpperCase().equals(marca))
                             first = true;
-                    } else if (!"".equals(produto)) {
-                        if (produtosNovo.getProduto().toUpperCase().equals(produto))
+                    } else if (!"".equals(produto))
+                        if (valueProduto.toUpperCase().equals(produto))
                             first = true;
-                    }  else if ("".equals(marca) && "".equals(produto))
-                        first = true;
 
                     if (first)
                         produtos.add(produtosNovo);

@@ -4,5 +4,6 @@
 
     <string name="carrinho">CARRINHO</string>
     <string name="settings">ALTERAR DADOS DA CONTA</string>
+    <string name="recuperar">RECUPERAR SENHA</string>
     <string name="sair">LOGOUT</string>
 </resources>

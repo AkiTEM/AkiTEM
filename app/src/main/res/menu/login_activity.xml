@@ -1,10 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".LoginActivity">
 
     <item
-        android:id="@+id/recuperar"
+        android:id="@+id/reset"
         android:orderInCategory="100"
-        android:title="RECUPERAR SENHA"
+        android:title="@string/reset"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/action_remove_user"
+        android:orderInCategory="100"
+        android:title="@string/remove_user"
+        app:showAsAction="never" />
 </menu>

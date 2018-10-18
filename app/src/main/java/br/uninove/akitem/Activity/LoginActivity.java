@@ -106,15 +106,17 @@ public class LoginActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.recuperar) {
-            recuperar();
+        if (id == R.id.reset) {
+            reset();
+        }
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_remove_user) {
+            //remove_user();
+            Toast.makeText(LoginActivity.this, "Em implementação, aguarde...novidades!", Toast.LENGTH_SHORT).show();
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    private void recuperar() {
-        Toast.makeText(LoginActivity.this, "Em implementação, aguarde...", Toast.LENGTH_SHORT).show();
     }
 
     public void abrirTelaPrincipal() {
@@ -131,5 +133,15 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(LoginActivity.this, CadastroProdutos.class);
         startActivity(intent);
         finish();
+    }
+
+    private void reset() {
+        Intent intent = new Intent(LoginActivity.this, ResetActivity.class);
+        startActivity(intent);
+    }
+
+    private void remove_user() {
+        Intent intent = new Intent(LoginActivity.this, RemoveUserActivity.class);
+        startActivity(intent);
     }
 }

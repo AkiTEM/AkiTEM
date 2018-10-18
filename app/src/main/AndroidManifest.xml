@@ -9,7 +9,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="br.uninove.akitem.GlobalClass"
+        android:name=".GlobalClass"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="AkiTEM"
@@ -39,6 +39,18 @@
         <activity android:name=".Activity.CadastroActivity" />
         <activity android:name=".Activity.CadastroProdutos" />
         <activity android:name=".Activity.ProdutosActivity" />
+        <activity
+            android:name=".Activity.ResetActivity"
+            android:label="@string/title_activity_reset" />
+        <activity
+            android:name=".Activity.RemoveUserActivity"
+            android:label="@string/title_activity_remove_user" />
+        <activity
+            android:name=".Activity.UpdateLoginActivity"
+            android:label="@string/title_activity_update_login" />
+        <activity
+            android:name=".Activity.UpdatePasswordActivity"
+            android:label="@string/title_activity_update_password"></activity>
     </application>
 
 </manifest>

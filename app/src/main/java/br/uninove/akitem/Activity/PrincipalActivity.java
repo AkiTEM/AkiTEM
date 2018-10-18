@@ -55,18 +55,26 @@ public class PrincipalActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.sair) {
-            deslogarUsuario();
-        }
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.settings) {
-            abreCadastroUsuario();
-        }
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.carrinho) {
-            verProdutos();
+            //verProdutos();
+            Toast.makeText(PrincipalActivity.this, "Em implementação, aguarde...novidades!", Toast.LENGTH_SHORT).show();
+        }
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_update_login) {
+            //updateLogin();
+            Toast.makeText(PrincipalActivity.this, "Em implementação, aguarde...novidades!", Toast.LENGTH_SHORT).show();
+        }
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_update_password) {
+            //updatePassword();
+            Toast.makeText(PrincipalActivity.this, "Em implementação, aguarde...novidades!", Toast.LENGTH_SHORT).show();
+        }
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.logout) {
+            logout();
         }
 
         return super.onOptionsItemSelected(item);
@@ -87,15 +95,25 @@ public class PrincipalActivity extends AppCompatActivity {
             Toast.makeText(PrincipalActivity.this, "Favor preencher os campos para busca", Toast.LENGTH_SHORT).show();
     }
 
-    private void deslogarUsuario() {
+    public void abreCadastroUsuario() {
+        Intent intent = new Intent(PrincipalActivity.this, CadastroActivity.class);
+        startActivity(intent);
+    }
+
+    public void updateLogin() {
+        Intent intent = new Intent(PrincipalActivity.this, UpdateLoginActivity.class);
+        startActivity(intent);
+    }
+
+    public void updatePassword() {
+        Intent intent = new Intent(PrincipalActivity.this, UpdatePasswordActivity.class);
+        startActivity(intent);
+    }
+
+    private void logout() {
         usuarioFirebase.signOut();
         Intent intent = new Intent(PrincipalActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
-    }
-
-    public void abreCadastroUsuario() {
-        Intent intent = new Intent(PrincipalActivity.this, CadastroActivity.class);
-        startActivity(intent);
     }
 }

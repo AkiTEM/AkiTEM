@@ -30,7 +30,7 @@ public class CadastroActivity extends AppCompatActivity {
     private EditText edtCadEmail;
     private EditText edtCadSenha;
     private EditText edtCadConfirmaSenha;
-    private Button btnGravar;
+    private Button btnGravar, btnVoltarTelaInicial;
     private Usuarios usuarios;
     private FirebaseAuth autenticacao;
 
@@ -43,6 +43,7 @@ public class CadastroActivity extends AppCompatActivity {
         edtCadSenha = (EditText) findViewById(R.id.edtCadSenha);
         edtCadConfirmaSenha = (EditText) findViewById(R.id.edtCadConfirmarSenha);
         btnGravar = (Button) findViewById(R.id.btnGravar);
+        btnVoltarTelaInicial = (Button) findViewById(R.id.btnVoltarTelaInicial);
 
         btnGravar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +62,13 @@ public class CadastroActivity extends AppCompatActivity {
                     }
                 } else
                     Toast.makeText(CadastroActivity.this, "Favor preencher os campos para cadastro", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        btnVoltarTelaInicial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                abrirLoginUsuario();
             }
         });
     }

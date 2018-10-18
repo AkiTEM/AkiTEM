@@ -61,16 +61,16 @@ public class PrincipalActivity extends AppCompatActivity {
         }
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_update_login) {
+        //if (id == R.id.action_update_login) {
             //updateLogin();
-            Toast.makeText(PrincipalActivity.this, "Em implementação, aguarde...novidades!", Toast.LENGTH_SHORT).show();
-        }
+        //    Toast.makeText(PrincipalActivity.this, "Em implementação, aguarde...novidades!", Toast.LENGTH_SHORT).show();
+        //}
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_update_password) {
+        //if (id == R.id.action_update_password) {
             //updatePassword();
-            Toast.makeText(PrincipalActivity.this, "Em implementação, aguarde...novidades!", Toast.LENGTH_SHORT).show();
-        }
+        //    Toast.makeText(PrincipalActivity.this, "Em implementação, aguarde...novidades!", Toast.LENGTH_SHORT).show();
+        //}
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.logout) {

@@ -3,13 +3,12 @@
     <!--<string name="app_activity"></string>-->
 
     <string name="carrinho"></string>
-    <string name="reset">Recuperar Acesso</string>
-    <string name="logout">Logout</string>
-    <string name="update_login">Atualizar Login</string>
-    <string name="update_password">Atualizar Senha</string>
-    <string name="remove_user">Remover Conta</string>
-    <string name="reset_bt_label">Iniciar Recuperação Acesso</string>
-    <string name="title_activity_update">UpdateActivity</string>
+    <string name="reset">RECUPERAR SENHA</string>
+    <string name="logout">LOGOUT</string>
+    <string name="update_login"></string>
+    <string name="update_password"></string>
+    <string name="remove_user"></string>
+    <string name="reset_bt_label">RESETAR SENHA</string>
     <string name="title_activity_update_login">AkiTEM</string>
     <string name="title_activity_update_password">AkiTEM</string>
     <string name="title_activity_remove_user">AkiTEM</string>

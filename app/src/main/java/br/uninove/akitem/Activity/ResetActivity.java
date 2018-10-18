@@ -1,11 +1,13 @@
 package br.uninove.akitem.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,7 +21,7 @@ import br.uninove.akitem.R;
 
 public class ResetActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
+    private Button btnVoltarTelaInicial;
     private AutoCompleteTextView email;
     private FirebaseAuth firebaseAuth;
 
@@ -28,9 +30,14 @@ public class ResetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset);
 
-        //toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-        //toolbar.setLogo(R.drawable.logo);
+        btnVoltarTelaInicial = (Button) findViewById(R.id.btnVoltarTelaInicial);
+
+        btnVoltarTelaInicial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                voltarTelaInicial();
+            }
+        });
 
         firebaseAuth = FirebaseAuth.getInstance();
     }
@@ -42,12 +49,14 @@ public class ResetActivity extends AppCompatActivity {
     }
 
     private void init(){
-        //toolbar.setTitle( getResources().getString(R.string.reset) );
         email = (AutoCompleteTextView) findViewById(R.id.email);
     }
 
     public void reset( View view ){
-        firebaseAuth
+        if (email.getText().toString().isEmpty()) {
+            Toast.makeText(ResetActivity.this, "Preencha o campo de e-mail", Toast.LENGTH_SHORT).show();
+        } else
+            firebaseAuth
                 .sendPasswordResetEmail( email.getText().toString() )
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -75,5 +84,11 @@ public class ResetActivity extends AppCompatActivity {
                         FirebaseCrash.report( e );
                     }
                 });
+    }
+
+    private void voltarTelaInicial() {
+        Intent intent = new Intent(ResetActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

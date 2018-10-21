@@ -33,10 +33,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <CheckBox
+        android:id="@+id/ckLista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Listar todas as promoções" />
+
     <Button
         android:id="@+id/btnVerProdutos"
         android:layout_width="match_parent"
-        android:text="PESQUISAR"
+        android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:layout_height="wrap_content" />
+        android:text="PESQUISAR" />
+
 </LinearLayout>

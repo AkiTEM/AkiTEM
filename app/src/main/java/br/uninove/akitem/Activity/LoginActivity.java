@@ -21,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import br.uninove.akitem.DAO.ConfiguracaoFirebase;
 import br.uninove.akitem.Entidades.Usuarios;
+import br.uninove.akitem.GlobalClass;
 import br.uninove.akitem.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -40,6 +41,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+
         edtEmail = (EditText) findViewById(R.id.edtEmail);
         edtSenha = (EditText) findViewById(R.id.edtSenha);
         tvAbreCadastro = (TextView) findViewById(R.id.tvAbreCadastro);
@@ -56,6 +59,8 @@ public class LoginActivity extends AppCompatActivity {
                         usuarios = new Usuarios();
                         usuarios.setEmail(edtEmail.getText().toString());
                         usuarios.setSenha(edtSenha.getText().toString());
+
+                        globalVariable.setEmail(edtEmail.getText().toString());
 
                         validarLogin();
                     }
@@ -81,7 +86,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if (task.isSuccessful()) {
-
                     abrirTelaPrincipal();
                     Toast.makeText(LoginActivity.this, "Login efetuado com sucesso!", Toast.LENGTH_SHORT).show();
                 } else {

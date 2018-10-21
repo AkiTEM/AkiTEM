@@ -39,6 +39,7 @@
         <activity android:name=".Activity.CadastroActivity" />
         <activity android:name=".Activity.CadastroProdutos" />
         <activity android:name=".Activity.ProdutosActivity" />
+        <activity android:name=".Activity.ListaActivity" />
         <activity
             android:name=".Activity.ResetActivity"
             android:label="@string/title_activity_reset" />
@@ -50,7 +51,7 @@
             android:label="@string/title_activity_update_login" />
         <activity
             android:name=".Activity.UpdatePasswordActivity"
-            android:label="@string/title_activity_update_password"></activity>
+            android:label="@string/title_activity_update_password" />
     </application>
 
 </manifest>

@@ -37,12 +37,14 @@ public class ProdutosAdapter extends ArrayAdapter<Produtos> {
             view = inflater.inflate(R.layout.lista_produtos, parent, false);
 
             //TextView textViewLocal = (TextView) view.findViewById(R.id.textViewLocal);
+            TextView textViewMarca = (TextView) view.findViewById(R.id.textViewMarca);
             TextView textViewProduto = (TextView) view.findViewById(R.id.textViewProduto);
             TextView textViewValor = (TextView) view.findViewById(R.id.textViewValor);
             ImageView imagem = (ImageView) view.findViewById(R.id.imagem_estabelecimento);
 
             Produtos produtos = produto.get(position);
             //textViewLocal.setText(produtos.getEstabaleciomento());
+            textViewMarca.setText(produtos.getMarca());
             textViewProduto.setText(produtos.getProduto());
             textViewValor.setText("R$ " + Double.valueOf(produtos.getValor()).toString().replace(".", ",").concat("0"));
 

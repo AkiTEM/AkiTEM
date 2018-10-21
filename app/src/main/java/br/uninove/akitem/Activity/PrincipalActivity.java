@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -43,7 +44,7 @@ public class PrincipalActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.principal_activity, menu);
+        getMenuInflater().inflate(R.menu.logout, menu);
         return true;
     }
 
@@ -55,10 +56,10 @@ public class PrincipalActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.carrinho) {
+        //if (id == R.id.carrinho) {
             //verProdutos();
-            Toast.makeText(PrincipalActivity.this, "Em implementação, aguarde...novidades!", Toast.LENGTH_SHORT).show();
-        }
+            //Toast.makeText(PrincipalActivity.this, "Em implementação, aguarde...novidades!", Toast.LENGTH_SHORT).show();
+        //}
 
         //noinspection SimplifiableIfStatement
         //if (id == R.id.action_update_login) {
@@ -83,12 +84,16 @@ public class PrincipalActivity extends AppCompatActivity {
     private void verProdutos() {
         edtMarca = (EditText) findViewById(R.id.edtMarca);
         edtProduto = (EditText) findViewById(R.id.edtProduto);
+        final CheckBox ck_lista =(CheckBox)findViewById(R.id.ckLista);
 
         Intent intent = new Intent(PrincipalActivity.this, ProdutosActivity.class);
         intent.putExtra("marca", edtMarca.getText().toString());
         intent.putExtra("produto", edtProduto.getText().toString());
 
-        if (!edtMarca.getText().toString().isEmpty() || !edtProduto.getText().toString().isEmpty()) {
+        if ((!edtMarca.getText().toString().isEmpty() || !edtProduto.getText().toString().isEmpty()) || (edtMarca.getText().toString().isEmpty() && edtProduto.getText().toString().isEmpty() && ck_lista.isChecked())) {
+            if (!edtMarca.getText().toString().isEmpty() || !edtProduto.getText().toString().isEmpty() && ck_lista.isChecked()) {
+                Toast.makeText(PrincipalActivity.this, "Será considerado o filtro de busca", Toast.LENGTH_SHORT).show();
+            }
             startActivity(intent);
             finish();
         } else

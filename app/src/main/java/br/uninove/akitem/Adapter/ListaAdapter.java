@@ -43,10 +43,16 @@ public class ListaAdapter extends ArrayAdapter<Lista> {
 
             Lista lista = listas.get(position);
             textViewMarca.setText(lista.getMarca());
-            textViewProduto.setText(lista.getProduto());
+            if (!"".equals(lista.getProduto()))
+                textViewProduto.setText(lista.getProduto());
+            else
+                textViewProduto.setText("");
             textViewValor.setText("R$ " + Double.valueOf(lista.getValor()).toString().replace(".", ",").concat("0"));
 
-            String estabelecimento = lista.getEstabaleciomento().toUpperCase();
+            String estabelecimento = "";
+
+            if (!"".equals(lista.getEstabaleciomento()))
+                estabelecimento = lista.getEstabaleciomento().toUpperCase();
 
             if (!estabelecimento.isEmpty()) {
 

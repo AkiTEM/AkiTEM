@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import br.uninove.akitem.Adapter.ListaAdapter;
@@ -39,6 +40,7 @@ public class ListaActivity extends AppCompatActivity {
     private DatabaseReference firebase;
     private ValueEventListener valueEventListenerLista;
     private Button btnVoltarTelaInicial;
+    private Lista itemTot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,16 +63,24 @@ public class ListaActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 lista.clear();
+                double totItens = 0;
 
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     Lista listanova = dados.getValue(Lista.class);
 
                     if (email.equals(listanova.getEmail()))
+                        totItens += listanova.getValor();
                         lista.add(listanova);
                 }
-                if (lista.isEmpty()) {
-                    Toast.makeText(ListaActivity.this, "Não há item na lista", Toast.LENGTH_SHORT).show();
-                }
+
+                itemTot = new Lista();
+                itemTot.setEmail(email);
+                itemTot.setEstabaleciomento("");
+                itemTot.setMarca("Total");
+                itemTot.setProduto("");
+                itemTot.setValor(totItens);
+                lista.add(itemTot);
+
                 adapter.notifyDataSetChanged();
             }
 

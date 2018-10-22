@@ -24,6 +24,8 @@
 
     <EditText
         android:id="@+id/edtEstabelecimento"
+        android:maxLength="20"
+        android:inputType="textImeMultiLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -34,6 +36,8 @@
 
     <EditText
         android:id="@+id/edtMarca"
+        android:maxLength="20"
+        android:inputType="textImeMultiLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -44,6 +48,8 @@
 
     <EditText
         android:id="@+id/edtProduto"
+        android:maxLength="20"
+        android:inputType="textImeMultiLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

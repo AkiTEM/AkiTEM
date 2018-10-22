@@ -27,6 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="E-mail"
+                android:maxLength="50"
                 android:inputType="textEmailAddress" />
 
             <EditText
@@ -34,6 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Senha"
+                android:maxLength="10"
                 android:inputType="textPassword" />
 
             <EditText
@@ -41,6 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Confirma Senha"
+                android:maxLength="10"
                 android:inputType="textPassword" />
 
             <Button

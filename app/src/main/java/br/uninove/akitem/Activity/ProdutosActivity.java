@@ -50,8 +50,8 @@ public class ProdutosActivity extends AppCompatActivity {
         usuarioFirebase = ConfiguracaoFirebase.getFirebaseAutenticacao();
 
         Intent intent = getIntent();
-        final String marca = intent.getStringExtra("marca").toUpperCase();
-        final String produto = intent.getStringExtra("produto").toUpperCase();
+        final String marca = replace_to(intent.getStringExtra("marca").toUpperCase());
+        final String produto = replace_to(intent.getStringExtra("produto").toUpperCase());
 
         final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
         final String email  = globalVariable.getEmail();
@@ -102,51 +102,29 @@ public class ProdutosActivity extends AppCompatActivity {
                     first = false;
 
                     if (!"".equals(marca))
-                        marca.replace("ã", "a");
-                        marca.replace("õ", "o");
-                        marca.replace("ç", "c");
-                        marca.replace("a", "á");
-                        marca.replace("o", "ó");
-                        marca.replace(" ", "+");
                         tamMarca = marca.length();
                         tamMarca2 = produtosNovo.getMarca().length();
                         if (tamMarca > tamMarca2)
                             tamMarca = tamMarca2;
                             valueMarca = produtosNovo.getMarca().substring(0,tamMarca);
-                            valueMarca.replace("ã", "a");
-                            valueMarca.replace("õ", "o");
-                            valueMarca.replace("ç", "c");
-                            valueMarca.replace("a", "á");
-                            valueMarca.replace("o", "ó");
-                            valueMarca.replace(" ", "+");
+                            valueMarca = replace_to(valueMarca.toUpperCase());
 
                     if (!"".equals(produto))
-                        produto.replace("ã", "a");
-                        produto.replace("õ", "o");
-                        produto.replace("ç", "c");
-                        produto.replace("a", "á");
-                        produto.replace("o", "ó");
-                        produto.replace(" ", "+");
                         tamProduto = produto.length();
                         tamProduto2 = produtosNovo.getProduto().length();
                         if (tamProduto > tamProduto2)
                             tamProduto = tamProduto2;
                             valueProduto = produtosNovo.getProduto().substring(0,tamProduto);
-                            valueProduto.replace("ã", "a");
-                            valueProduto.replace("õ", "o");
-                            valueProduto.replace("ç", "c");
-                            valueProduto.replace("a", "á");
-                            valueProduto.replace("o", "ó");
-                            valueProduto.replace(" ", "+");
+                            valueProduto = replace_to(valueProduto.toUpperCase());
 
                     if (!"".equals(marca) && !"".equals(produto)) {
-                        if (valueMarca.toUpperCase().equals(marca) && valueProduto.toUpperCase().equals(produto))
+                        if (valueMarca.equals(marca) && valueProduto.equals(produto))
                             first = true;
                     } else if (!"".equals(marca)) {
-                        if (valueMarca.toUpperCase().equals(marca))
+                        if (valueMarca.equals(marca))
                             first = true;
                     } else if (!"".equals(produto)) {
-                        if (valueProduto.toUpperCase().equals(produto))
+                        if (valueProduto.equals(produto))
                             first = true;
                     } else if ("".equals(marca) && "".equals(produto))
                         first = true;
@@ -174,6 +152,16 @@ public class ProdutosActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public String replace_to(String item) {
+        item = item.replace("Ã", "A");
+        item = item.replace("Õ", "O");
+        item = item.replace("Ç", "C");
+        item = item.replace("Á", "A");
+        item = item.replace("Ó", "O");
+
+        return item;
     }
 
     @Override

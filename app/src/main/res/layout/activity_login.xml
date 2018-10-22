@@ -21,6 +21,7 @@
         android:id="@+id/edtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxLength="50"
         android:hint="E-MAIL"
         android:inputType="textEmailAddress" />
 
@@ -28,6 +29,7 @@
         android:id="@+id/edtSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxLength="10"
         android:hint="SENHA"
         android:inputType="textPassword" />
 

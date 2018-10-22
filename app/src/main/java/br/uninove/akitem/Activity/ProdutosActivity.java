@@ -102,18 +102,42 @@ public class ProdutosActivity extends AppCompatActivity {
                     first = false;
 
                     if (!"".equals(marca))
+                        marca.replace("ã", "a");
+                        marca.replace("õ", "o");
+                        marca.replace("ç", "c");
+                        marca.replace("a", "á");
+                        marca.replace("o", "ó");
+                        marca.replace(" ", "+");
                         tamMarca = marca.length();
                         tamMarca2 = produtosNovo.getMarca().length();
                         if (tamMarca > tamMarca2)
                             tamMarca = tamMarca2;
                             valueMarca = produtosNovo.getMarca().substring(0,tamMarca);
+                            valueMarca.replace("ã", "a");
+                            valueMarca.replace("õ", "o");
+                            valueMarca.replace("ç", "c");
+                            valueMarca.replace("a", "á");
+                            valueMarca.replace("o", "ó");
+                            valueMarca.replace(" ", "+");
 
                     if (!"".equals(produto))
+                        produto.replace("ã", "a");
+                        produto.replace("õ", "o");
+                        produto.replace("ç", "c");
+                        produto.replace("a", "á");
+                        produto.replace("o", "ó");
+                        produto.replace(" ", "+");
                         tamProduto = produto.length();
                         tamProduto2 = produtosNovo.getProduto().length();
                         if (tamProduto > tamProduto2)
                             tamProduto = tamProduto2;
                             valueProduto = produtosNovo.getProduto().substring(0,tamProduto);
+                            valueProduto.replace("ã", "a");
+                            valueProduto.replace("õ", "o");
+                            valueProduto.replace("ç", "c");
+                            valueProduto.replace("a", "á");
+                            valueProduto.replace("o", "ó");
+                            valueProduto.replace(" ", "+");
 
                     if (!"".equals(marca) && !"".equals(produto)) {
                         if (valueMarca.toUpperCase().equals(marca) && valueProduto.toUpperCase().equals(produto))

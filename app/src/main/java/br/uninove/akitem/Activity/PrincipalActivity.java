@@ -91,9 +91,9 @@ public class PrincipalActivity extends AppCompatActivity {
         intent.putExtra("produto", edtProduto.getText().toString());
 
         if ((!edtMarca.getText().toString().isEmpty() || !edtProduto.getText().toString().isEmpty()) || (edtMarca.getText().toString().isEmpty() && edtProduto.getText().toString().isEmpty() && ck_lista.isChecked())) {
-            if (!edtMarca.getText().toString().isEmpty() || !edtProduto.getText().toString().isEmpty() && ck_lista.isChecked()) {
-                Toast.makeText(PrincipalActivity.this, "Será considerado o filtro de busca", Toast.LENGTH_SHORT).show();
-            }
+            if (!edtMarca.getText().toString().isEmpty() || !edtProduto.getText().toString().isEmpty())
+                if (ck_lista.isChecked())
+                    Toast.makeText(PrincipalActivity.this, "Será considerado o filtro de busca", Toast.LENGTH_SHORT).show();
             startActivity(intent);
             finish();
         } else

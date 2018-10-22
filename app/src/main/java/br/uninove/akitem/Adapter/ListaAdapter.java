@@ -8,10 +8,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import br.uninove.akitem.Entidades.Lista;
-import br.uninove.akitem.Model.Estabelecimento;
 import br.uninove.akitem.R;
 
 public class ListaAdapter extends ArrayAdapter<Lista> {
@@ -47,7 +47,10 @@ public class ListaAdapter extends ArrayAdapter<Lista> {
                 textViewProduto.setText(lista.getProduto());
             else
                 textViewProduto.setText("");
-            textViewValor.setText("R$ " + Double.valueOf(lista.getValor()).toString().replace(".", ",").concat("0"));
+
+            BigDecimal roundVal = new BigDecimal(lista.getValor());
+            roundVal = roundVal.setScale(2,BigDecimal.ROUND_HALF_UP);
+            textViewValor.setText("R$ " + roundVal);
 
             String estabelecimento = "";
 

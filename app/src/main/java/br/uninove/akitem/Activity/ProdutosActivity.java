@@ -65,14 +65,17 @@ public class ProdutosActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                lista = new Lista();
-                lista.setEmail(email);
-                lista.setEstabaleciomento(produtos.get(position).getEstabaleciomento());
-                lista.setMarca(produtos.get(position).getMarca());
-                lista.setProduto(produtos.get(position).getProduto());
-                lista.setValor(produtos.get(position).getValor());
+                if (!"".equals(email)) {
+                    lista = new Lista();
+                    lista.setEmail(email);
+                    lista.setEstabaleciomento(produtos.get(position).getEstabaleciomento());
+                    lista.setMarca(produtos.get(position).getMarca());
+                    lista.setProduto(produtos.get(position).getProduto());
+                    lista.setValor(produtos.get(position).getValor());
 
-                salvarLista(lista);
+                    salvarLista(lista);
+                } else
+                    Toast.makeText(ProdutosActivity.this, "Favor logar novamente", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -68,9 +68,10 @@ public class ListaActivity extends AppCompatActivity {
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     Lista listanova = dados.getValue(Lista.class);
 
-                    if (email.equals(listanova.getEmail()))
+                    if (email.equals(listanova.getEmail())) {
                         totItens += listanova.getValor();
                         lista.add(listanova);
+                    }
                 }
 
                 itemTot = new Lista();

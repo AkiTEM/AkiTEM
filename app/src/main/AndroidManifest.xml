@@ -34,12 +34,22 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.LoginActivity" />
         <activity android:name=".Activity.PrincipalActivity" />
-        <activity android:name=".Activity.CadastroActivity" />
-        <activity android:name=".Activity.CadastroProdutos" />
-        <activity android:name=".Activity.ProdutosActivity" />
-        <activity android:name=".Activity.ListaActivity" />
+        <activity
+            android:name=".Activity.LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name=".Activity.CadastroActivity"
+            android:label="@string/title_activity_cadastro" />
+        <activity
+            android:name=".Activity.CadastroProdutos"
+            android:label="@string/title_activity_produtos_cadastro" />
+        <activity
+            android:name=".Activity.ProdutosActivity"
+            android:label="@string/title_activity_produtos" />
+        <activity
+            android:name=".Activity.ListaActivity"
+            android:label="@string/title_activity_lista" />
         <activity
             android:name=".Activity.ResetActivity"
             android:label="@string/title_activity_reset" />

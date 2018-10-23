@@ -73,7 +73,7 @@ public class CadastroProdutos extends AppCompatActivity {
     }
 
     private void voltarTelaInicial() {
-        Intent intent = new Intent(CadastroProdutos.this, PrincipalActivity.class);
+        Intent intent = new Intent(CadastroProdutos.this, LoginActivity.class);
         startActivity(intent);
         finish();
     }

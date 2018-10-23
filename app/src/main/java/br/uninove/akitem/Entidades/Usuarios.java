@@ -1,11 +1,15 @@
 package br.uninove.akitem.Entidades;
 
+import android.content.Context;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import br.uninove.akitem.Activity.Domain.Util.LibraryClass;
 import br.uninove.akitem.DAO.ConfiguracaoFirebase;
 
 public class Usuarios {
@@ -55,5 +59,17 @@ public class Usuarios {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public void removeDB( DatabaseReference.CompletionListener completionListener ){
+
+        DatabaseReference firebase = LibraryClass.getFirebase().child("Usuario");
+        firebase.setValue(null, completionListener);
+    }
+
+    public void contextDataDB( Context context ){
+
+        DatabaseReference firebase = LibraryClass.getFirebase().child("Usuario");
+        firebase.addListenerForSingleValueEvent( (ValueEventListener) context );
     }
 }

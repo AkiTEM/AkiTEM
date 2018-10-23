@@ -50,7 +50,7 @@ public class ListaActivity extends AppCompatActivity {
         usuarioFirebase = ConfiguracaoFirebase.getFirebaseAutenticacao();
 
         final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
-        final String email  = globalVariable.getEmail();
+        final String email = globalVariable.getEmail();
 
         lista = new ArrayList<>();
         listView = (ListView) findViewById(R.id.listViewLista);
@@ -68,9 +68,10 @@ public class ListaActivity extends AppCompatActivity {
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     Lista listanova = dados.getValue(Lista.class);
 
-                    if (email.equals(listanova.getEmail()))
+                    if (email.equals(listanova.getEmail())) {
                         totItens += listanova.getValor();
                         lista.add(listanova);
+                    }
                 }
 
                 itemTot = new Lista();

@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import br.uninove.akitem.DAO.ConfiguracaoFirebase;
 import br.uninove.akitem.Fragment.FotosTelaInicialFragment;
+import br.uninove.akitem.GlobalClass;
 import br.uninove.akitem.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,7 +39,10 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setLogo(R.drawable.logo);
 
-        verifaUsuarioLogado();
+        final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+        final String email = globalVariable.getEmail();
+
+        verifaUsuarioLogado(email);
 
         btnAbrirActivityLogin = (Button) findViewById(R.id.btnFazerLogin);
 
@@ -53,9 +57,9 @@ public class MainActivity extends AppCompatActivity {
         carregarFragmentTelaInicial();
     }
 
-    private void verifaUsuarioLogado() {
+    private void verifaUsuarioLogado(String email) {
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
-        if (autenticacao.getCurrentUser() != null) {
+        if (autenticacao.getCurrentUser() != null && !"".equals(email)) {
             Intent intent = new Intent(MainActivity.this, PrincipalActivity.class);
             startActivity(intent);
             finish();

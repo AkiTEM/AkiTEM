@@ -1,10 +1,13 @@
 package br.uninove.akitem.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -20,6 +23,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+
+import br.uninove.akitem.Entidades.Usuarios;
 import br.uninove.akitem.R;
 
 import br.uninove.akitem.Activity.Domain.User;
@@ -27,19 +32,26 @@ import br.uninove.akitem.Activity.Domain.User;
 public class RemoveUserActivity extends AppCompatActivity
         implements ValueEventListener, DatabaseReference.CompletionListener {
 
-    private Toolbar toolbar;
-    private User user;
+    private Button btnVoltarTelaInicial4;
+    private Usuarios usuarios;
     private EditText password;
-    private FirebaseAuth mAuth;
+    private FirebaseAuth autenticacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remove_user);
 
-        //toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-        //mAuth = FirebaseAuth.getInstance();
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+        btnVoltarTelaInicial4 = (Button) findViewById(R.id.btnVoltarTelaInicial4);
+
+        btnVoltarTelaInicial4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                voltarTelaInicial();
+            }
+        });
     }
 
     @Override
@@ -49,30 +61,29 @@ public class RemoveUserActivity extends AppCompatActivity
     }
 
     private void init(){
-        //toolbar.setTitle( getResources().getString(R.string.remove_user) );
         password = (EditText) findViewById(R.id.password);
 
-        user = new User();
-        user.setId( mAuth.getCurrentUser().getUid() );
-        user.contextDataDB( this );
+        usuarios = new Usuarios();
+        usuarios.setId(autenticacao.getCurrentUser().getUid());
+        usuarios.contextDataDB( this );
     }
 
     public void update( View view ){
-        user.setPassword( password.getText().toString() );
+        usuarios.setSenha(password.getText().toString());
 
         reauthenticate();
     }
 
     private void reauthenticate(){
-        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+        FirebaseUser firebaseUser = autenticacao.getCurrentUser();
 
         if( firebaseUser == null ){
             return;
         }
 
         AuthCredential credential = EmailAuthProvider.getCredential(
-                user.getEmail(),
-                user.getPassword()
+                usuarios.getEmail(),
+                usuarios.getSenha()
         );
 
         firebaseUser.reauthenticate( credential )
@@ -98,7 +109,7 @@ public class RemoveUserActivity extends AppCompatActivity
     }
 
     private void deleteUser(){
-        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+        FirebaseUser firebaseUser = autenticacao.getCurrentUser();
 
         if( firebaseUser == null ){
             return;
@@ -112,7 +123,7 @@ public class RemoveUserActivity extends AppCompatActivity
                     return;
                 }
 
-                user.removeDB( RemoveUserActivity.this );
+                usuarios.removeDB( RemoveUserActivity.this );
             }
         })
                 .addOnFailureListener(new OnFailureListener() {
@@ -130,8 +141,8 @@ public class RemoveUserActivity extends AppCompatActivity
 
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
-        User u = dataSnapshot.getValue( User.class );
-        user.setEmail( u.getEmail() );
+        Usuarios u = dataSnapshot.getValue( Usuarios.class );
+        usuarios.setEmail( u.getEmail() );
     }
 
     @Override
@@ -150,6 +161,12 @@ public class RemoveUserActivity extends AppCompatActivity
                 "Conta removida com sucesso",
                 Toast.LENGTH_SHORT
         ).show();
+        finish();
+    }
+
+    private void voltarTelaInicial() {
+        Intent intent = new Intent(RemoveUserActivity.this, LoginActivity.class);
+        startActivity(intent);
         finish();
     }
 }

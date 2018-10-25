@@ -76,7 +76,14 @@ public class RemoveUserActivity extends AppCompatActivity implements ValueEventL
         usuarios.setEmail(email);
         usuarios.setSenha(password.getText().toString());
 
-        reauthenticate();
+        if (!password.getText().toString().isEmpty()) {
+            reauthenticate();
+        } else
+            Toast.makeText(
+                    RemoveUserActivity.this,
+                    "Preencha o campo de senha",
+                    Toast.LENGTH_SHORT
+            ).show();
     }
 
     private void reauthenticate(){

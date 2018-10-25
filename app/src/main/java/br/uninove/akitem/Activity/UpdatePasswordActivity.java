@@ -78,7 +78,14 @@ public class UpdatePasswordActivity extends AppCompatActivity implements ValueEv
         usuarios.setSenha(password.getText().toString());
         usuarios.setEmail(email);
 
-        reauthenticate();
+        if (!newPassword.getText().toString().isEmpty() && !password.getText().toString().isEmpty()) {
+            reauthenticate();
+        } else
+            Toast.makeText(
+                    UpdatePasswordActivity.this,
+                    "Preencha todos os campos para atualização",
+                    Toast.LENGTH_SHORT
+            ).show();
     }
 
     private void reauthenticate(){

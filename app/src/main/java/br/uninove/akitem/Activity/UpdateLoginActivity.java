@@ -77,7 +77,14 @@ public class UpdateLoginActivity extends AppCompatActivity implements ValueEvent
         usuarios.setEmail(email);
         usuarios.setSenha(password.getText().toString());
 
-        reauthenticate();
+        if (!password.getText().toString().isEmpty()) {
+            reauthenticate();
+        } else
+            Toast.makeText(
+                    UpdateLoginActivity.this,
+                    "Preencha o campo de senha",
+                    Toast.LENGTH_SHORT
+            ).show();
     }
 
     private void reauthenticate(){

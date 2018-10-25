@@ -63,7 +63,7 @@ public class ProdutosActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                if (!"".equals(email)) {
+                if (email != null) {
                     lista = new Lista();
                     lista.setEmail(email);
                     lista.setEstabaleciomento(produtos.get(position).getEstabaleciomento());
@@ -235,8 +235,4 @@ public class ProdutosActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
-    //public void AddLista(View v){
-    //    Toast.makeText(ProdutosActivity.this, "Item inserido com sucesso!", Toast.LENGTH_SHORT).show();
-    //}
 }

@@ -11,11 +11,5 @@
     android:gravity="center"
     tools:context="br.uninove.akitem.Activity.ResetActivity">
 
-    <ImageView
-        android:id="@+id/imagemFragmentFotos"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:src="@mipmap/logo" />
-
     <include layout="@layout/content_reset" />
 </LinearLayout>

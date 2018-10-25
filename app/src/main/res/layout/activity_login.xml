@@ -48,5 +48,4 @@
         android:id="@+id/tvAbreCadastro"
         android:text="Não tem cadastro? Clique aqui"
         android:textSize="15sp" />
-
 </LinearLayout>

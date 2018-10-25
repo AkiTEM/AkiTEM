@@ -24,7 +24,6 @@ import br.uninove.akitem.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FirebaseAuth usuarioFirebase;
     private Button btnAbrirActivityLogin;
     private FirebaseAuth autenticacao;
     private FotosTelaInicialFragment fotosTelaInicialFragment;
@@ -35,8 +34,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        usuarioFirebase = ConfiguracaoFirebase.getFirebaseAutenticacao();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -68,21 +65,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             } else
-                usuarioFirebase.signOut();
-                finish();
+                autenticacao.signOut();
                 carregarFragmentTelaInicial();
         }
     }
 
     public void carregarFragmentTelaInicial(){
         fotosTelaInicialFragment = new FotosTelaInicialFragment();
-
         fragmentManager = getSupportFragmentManager();
-
         fragmentTransaction = fragmentManager.beginTransaction();
-
         fragmentTransaction.add(R.id.framLayoutTelaInicial, fotosTelaInicialFragment, "FragmentTelaInicial");
-
         fragmentTransaction.commit();
     }
 }

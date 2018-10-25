@@ -59,21 +59,13 @@ public class PrincipalActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        //if (id == R.id.carrinho) {
-            //verProdutos();
-            //Toast.makeText(PrincipalActivity.this, "Em implementação, aguarde...novidades!", Toast.LENGTH_SHORT).show();
-        //}
-
-        //noinspection SimplifiableIfStatement
-        //if (id == R.id.action_update_login) {
-            //updateLogin();
-        //    Toast.makeText(PrincipalActivity.this, "Em implementação, aguarde...novidades!", Toast.LENGTH_SHORT).show();
-        //}
+        if (id == R.id.action_update_login) {
+            updateLogin();
+        }
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_update_password) {
             updatePassword();
-        //    Toast.makeText(PrincipalActivity.this, "Em implementação, aguarde...novidades!", Toast.LENGTH_SHORT).show();
         }
 
         //noinspection SimplifiableIfStatement

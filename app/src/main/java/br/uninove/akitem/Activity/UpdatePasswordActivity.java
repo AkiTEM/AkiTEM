@@ -24,28 +24,31 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 import br.uninove.akitem.Entidades.Usuarios;
+import br.uninove.akitem.GlobalClass;
 import br.uninove.akitem.R;
-
-import br.uninove.akitem.Activity.Domain.User;
 
 public class UpdatePasswordActivity extends AppCompatActivity implements ValueEventListener {
 
-    private Button btnVoltarTelaInicial;
+    private Button btnVoltarTelaInicial6;
     private Usuarios usuarios;
     private EditText newPassword;
     private EditText password;
     private FirebaseAuth autenticacao;
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_password);
 
+        final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+        email = globalVariable.getEmail();
+
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-        btnVoltarTelaInicial = (Button) findViewById(R.id.btnVoltarTelaInicial);
+        btnVoltarTelaInicial6 = (Button) findViewById(R.id.btnVoltarTelaInicial6);
 
-        btnVoltarTelaInicial.setOnClickListener(new View.OnClickListener() {
+        btnVoltarTelaInicial6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 voltarTelaInicial();
@@ -66,13 +69,14 @@ public class UpdatePasswordActivity extends AppCompatActivity implements ValueEv
         password = (EditText) findViewById(R.id.password);
 
         usuarios = new Usuarios();
-        usuarios.setId( autenticacao.getCurrentUser().getUid() );
+        usuarios.setId(autenticacao.getCurrentUser().getUid());
         usuarios.contextDataDB( this );
     }
 
     public void update( View view ){
-        usuarios.setNewPassword( newPassword.getText().toString() );
-        usuarios.setSenha( password.getText().toString() );
+        usuarios.setNewPassword(newPassword.getText().toString());
+        usuarios.setSenha(password.getText().toString());
+        usuarios.setEmail(email);
 
         reauthenticate();
     }
@@ -113,8 +117,8 @@ public class UpdatePasswordActivity extends AppCompatActivity implements ValueEv
     }
 
     private void updateData(){
-        usuarios.setNewPassword( newPassword.getText().toString() );
-        usuarios.setSenha( password.getText().toString() );
+        usuarios.setNewPassword(newPassword.getText().toString());
+        usuarios.setSenha(password.getText().toString());
 
         FirebaseUser firebaseUser = autenticacao.getCurrentUser();
 
@@ -123,7 +127,7 @@ public class UpdatePasswordActivity extends AppCompatActivity implements ValueEv
         }
 
         firebaseUser
-                .updatePassword( usuarios.getSenha() )
+                .updatePassword(usuarios.getNewPassword())
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -137,6 +141,11 @@ public class UpdatePasswordActivity extends AppCompatActivity implements ValueEv
                                     "Senha atualizada com sucesso",
                                     Toast.LENGTH_SHORT
                             ).show();
+
+                            autenticacao.signOut();
+                            Intent intent = new Intent(UpdatePasswordActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                            finish();
                         }
                     }
                 })
@@ -155,13 +164,13 @@ public class UpdatePasswordActivity extends AppCompatActivity implements ValueEv
 
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
-        Usuarios usuarios = dataSnapshot.getValue( Usuarios.class );
-        usuarios.setEmail( usuarios.getEmail() );
+        Usuarios usuarios = dataSnapshot.getValue(Usuarios.class);
+        usuarios.setEmail(usuarios.getEmail());
     }
 
     @Override
     public void onCancelled(DatabaseError firebaseError) {
-        FirebaseCrash.report( firebaseError.toException() );
+        FirebaseCrash.report(firebaseError.toException());
     }
 
     private void voltarTelaInicial() {

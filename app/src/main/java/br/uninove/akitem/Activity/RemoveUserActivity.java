@@ -25,22 +25,24 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import br.uninove.akitem.Entidades.Usuarios;
+import br.uninove.akitem.GlobalClass;
 import br.uninove.akitem.R;
 
-import br.uninove.akitem.Activity.Domain.User;
-
-public class RemoveUserActivity extends AppCompatActivity
-        implements ValueEventListener, DatabaseReference.CompletionListener {
+public class RemoveUserActivity extends AppCompatActivity implements ValueEventListener, DatabaseReference.CompletionListener {
 
     private Button btnVoltarTelaInicial4;
     private Usuarios usuarios;
     private EditText password;
     private FirebaseAuth autenticacao;
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remove_user);
+
+        final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+        email = globalVariable.getEmail();
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
@@ -66,11 +68,12 @@ public class RemoveUserActivity extends AppCompatActivity
         password = (EditText) findViewById(R.id.password);
 
         usuarios = new Usuarios();
-        usuarios.setId( autenticacao.getCurrentUser().getUid() );
+        usuarios.setId(autenticacao.getCurrentUser().getUid());
         usuarios.contextDataDB( this );
     }
 
     public void update( View view ){
+        usuarios.setEmail(email);
         usuarios.setSenha(password.getText().toString());
 
         reauthenticate();
@@ -143,19 +146,19 @@ public class RemoveUserActivity extends AppCompatActivity
 
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
-        Usuarios u = dataSnapshot.getValue( Usuarios.class );
-        usuarios.setEmail( u.getEmail() );
+        Usuarios usuarios = dataSnapshot.getValue(Usuarios.class);
+        usuarios.setEmail(usuarios.getEmail());
     }
 
     @Override
     public void onCancelled(DatabaseError firebaseError) {
-        FirebaseCrash.report( firebaseError.toException() );
+        FirebaseCrash.report(firebaseError.toException());
     }
 
     @Override
     public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-        if( databaseError != null ){
-            FirebaseCrash.report( databaseError.toException() );
+        if(databaseError != null){
+            FirebaseCrash.report(databaseError.toException());
         }
 
         Toast.makeText(
@@ -163,6 +166,10 @@ public class RemoveUserActivity extends AppCompatActivity
                 "Conta removida com sucesso",
                 Toast.LENGTH_SHORT
         ).show();
+
+        autenticacao.signOut();
+        Intent intent = new Intent(RemoveUserActivity.this, LoginActivity.class);
+        startActivity(intent);
         finish();
     }
 

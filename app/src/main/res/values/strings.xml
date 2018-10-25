@@ -5,7 +5,7 @@
     <string name="carrinho"></string>
     <string name="reset">RECUPERAR SENHA</string>
     <string name="logout">LOGOUT</string>
-    <string name="update_login"></string>
+    <string name="update_login">ATUALIZAR E-MAIL</string>
     <string name="update_password">ATUALIZAR SENHA</string>
     <string name="remove_user">REMOVER USUÁRIO</string>
     <string name="reset_bt_label">RESETAR SENHA</string>
@@ -15,9 +15,9 @@
     <string name="title_activity_produtos_cadastro">Cadastro de Produtos</string>
     <string name="title_activity_produtos">Promoções</string>
     <string name="title_activity_lista">Itens do Carrinho</string>
+    <string name="title_activity_update_login">Atualização de E-mail</string>
+    <string name="title_activity_update_password">Atualização de Senha</string>
     <string name="title_activity_remove_user">Remover Usuário</string>
-    <string name="title_activity_update_login">AkiTEM</string>
-    <string name="title_activity_update_password">AkiTEM</string>
     <string name="title_activity_notification">Notifications Firebase</string>
 
     <!-- Strings related to login -->
@@ -32,6 +32,7 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="password_info">Para prosseguir com a remoção informe abaixo sua senha.</string>
+    <string name="password_info">Para prosseguir com a atualização informe abaixo sua senha.</string>
+    <string name="remove_user_info">Para prosseguir com a remoção informe abaixo sua senha.</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
 </resources>

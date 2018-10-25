@@ -19,5 +19,4 @@
         android:layout_gravity="center_horizontal|top"
         android:divider="@color/colorPrimary"
         android:dividerHeight="1dp" />
-
 </LinearLayout>

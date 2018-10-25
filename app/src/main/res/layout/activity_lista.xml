@@ -12,13 +12,6 @@
         android:layout_height="wrap_content"
         android:text="Voltar tela inicial" />
 
-    <!--<TextView
-        android:id="@+id/textViewTotal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TOTAL"
-        android:textSize="18dp" />-->
-
     <ListView
         android:id="@+id/listViewLista"
         android:layout_width="match_parent"
@@ -26,5 +19,4 @@
         android:layout_gravity="center_horizontal|top"
         android:divider="@color/colorPrimary"
         android:dividerHeight="1dp" />
-
 </LinearLayout>

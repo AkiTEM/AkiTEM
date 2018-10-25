@@ -65,6 +65,14 @@ public class ListaActivity extends AppCompatActivity {
                 lista.clear();
                 double totItens = 0;
 
+                if (email == null) {
+                    Toast.makeText(ListaActivity.this, "Favor logar novamente", Toast.LENGTH_LONG).show();
+                    usuarioFirebase.signOut();
+                    Intent intent = new Intent(ListaActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     Lista listanova = dados.getValue(Lista.class);
 

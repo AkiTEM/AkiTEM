@@ -60,7 +60,7 @@ public class ResetActivity extends AppCompatActivity {
             Toast.makeText(ResetActivity.this, "Preencha o campo de e-mail", Toast.LENGTH_SHORT).show();
         } else
             firebaseAuth
-                .sendPasswordResetEmail( email.getText().toString() )
+                .sendPasswordResetEmail(email.getText().toString())
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

@@ -20,27 +20,26 @@ import com.google.firebase.crash.FirebaseCrash;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+
+import br.uninove.akitem.DAO.ConfiguracaoFirebase;
+import br.uninove.akitem.Entidades.Usuarios;
 import br.uninove.akitem.R;
 
 import br.uninove.akitem.Activity.Domain.User;
 
 public class UpdateLoginActivity extends AppCompatActivity implements ValueEventListener {
-    private Toolbar toolbar;
-    private User user;
+    private Usuarios usuarios;
     private AutoCompleteTextView newEmail;
     private EditText password;
 
-    private FirebaseAuth mAuth;
+    private FirebaseAuth autenticacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_login);
 
-        //toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-
-        mAuth = FirebaseAuth.getInstance();
+        autenticacao = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -50,32 +49,30 @@ public class UpdateLoginActivity extends AppCompatActivity implements ValueEvent
     }
 
     private void init(){
-        //toolbar.setTitle( getResources().getString(R.string.update_login) );
         newEmail = (AutoCompleteTextView) findViewById(R.id.email);
-        //password = (EditText) findViewById(R.id.password);
 
-        user = new User();
-        user.setId( mAuth.getCurrentUser().getUid() );
-        user.contextDataDB( this );
+        usuarios = new Usuarios();
+        usuarios.setId( autenticacao.getCurrentUser().getUid() );
+        usuarios.contextDataDB( this );
     }
 
     public void update( View view ){
 
-        user.setPassword( password.getText().toString() );
+        usuarios.setSenha( password.getText().toString() );
 
         reauthenticate();
     }
 
     private void reauthenticate(){
-        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+        FirebaseUser firebaseUser = autenticacao.getCurrentUser();
 
         if( firebaseUser == null ){
             return;
         }
 
         AuthCredential credential = EmailAuthProvider.getCredential(
-                user.getEmail(),
-                user.getPassword()
+                usuarios.getEmail(),
+                usuarios.getSenha()
         );
 
         firebaseUser.reauthenticate( credential )
@@ -102,9 +99,9 @@ public class UpdateLoginActivity extends AppCompatActivity implements ValueEvent
     }
 
     private void updateData(){
-        user.setPassword( password.getText().toString() );
+        usuarios.setSenha( password.getText().toString() );
 
-        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+        FirebaseUser firebaseUser = autenticacao.getCurrentUser();
 
         if( firebaseUser == null ){
             return;
@@ -117,8 +114,8 @@ public class UpdateLoginActivity extends AppCompatActivity implements ValueEvent
                     public void onComplete(@NonNull Task<Void> task) {
 
                         if( task.isSuccessful() ){
-                            user.setEmail( newEmail.getText().toString() );
-                            user.updateDB();
+                            usuarios.setEmail( newEmail.getText().toString() );
+                            usuarios.updateDB();
 
                             Toast.makeText(
                                     UpdateLoginActivity.this,
@@ -143,9 +140,9 @@ public class UpdateLoginActivity extends AppCompatActivity implements ValueEvent
 
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
-        User u = dataSnapshot.getValue( User.class );
-        newEmail.setText( u.getEmail() );
-        user.setEmail( u.getEmail() );
+        Usuarios usuarios = dataSnapshot.getValue( Usuarios.class );
+        newEmail.setText( usuarios.getEmail() );
+        usuarios.setEmail( usuarios.getEmail() );
     }
 
     @Override

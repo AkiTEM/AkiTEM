@@ -10,9 +10,9 @@
         android:title="@string/reset"
         app:showAsAction="never" />
 
-    <item
+    <!--<item
         android:id="@+id/action_remove_user"
         android:orderInCategory="100"
         android:title="@string/remove_user"
-        app:showAsAction="never" />
+        app:showAsAction="never" />-->
 </menu>

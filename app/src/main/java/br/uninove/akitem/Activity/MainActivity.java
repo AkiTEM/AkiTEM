@@ -59,10 +59,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void verifaUsuarioLogado(String email) {
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
-        if (autenticacao.getCurrentUser() != null && !"".equals(email)) {
-            Intent intent = new Intent(MainActivity.this, PrincipalActivity.class);
-            startActivity(intent);
-            finish();
+        if (autenticacao.getCurrentUser() != null) {
+
+            Intent intent;
+            if (email != null) {
+                intent = new Intent(MainActivity.this, PrincipalActivity.class);
+                startActivity(intent);
+                finish();
+            } else
+                intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
         }
     }
 

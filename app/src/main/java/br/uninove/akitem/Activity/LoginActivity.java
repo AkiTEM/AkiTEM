@@ -118,10 +118,10 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_remove_user) {
+        //if (id == R.id.action_remove_user) {
             //remove_user();
-            Toast.makeText(LoginActivity.this, "Em implementação...", Toast.LENGTH_SHORT).show();
-        }
+            //Toast.makeText(LoginActivity.this, "Em implementação...", Toast.LENGTH_SHORT).show();
+        //}
 
         return super.onOptionsItemSelected(item);
     }

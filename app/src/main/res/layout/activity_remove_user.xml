@@ -6,12 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Activity.RemoveUserActivity">
 
-    <ImageView
-        android:id="@+id/imagemFragmentFotos"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:src="@mipmap/logo" />
-
     <include layout="@layout/content_remove_user" />
 
 </android.support.constraint.ConstraintLayout>

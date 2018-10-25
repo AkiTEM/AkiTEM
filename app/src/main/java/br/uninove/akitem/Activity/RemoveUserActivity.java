@@ -52,6 +52,8 @@ public class RemoveUserActivity extends AppCompatActivity
                 voltarTelaInicial();
             }
         });
+
+        autenticacao = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -64,7 +66,7 @@ public class RemoveUserActivity extends AppCompatActivity
         password = (EditText) findViewById(R.id.password);
 
         usuarios = new Usuarios();
-        usuarios.setId(autenticacao.getCurrentUser().getUid());
+        usuarios.setId( autenticacao.getCurrentUser().getUid() );
         usuarios.contextDataDB( this );
     }
 

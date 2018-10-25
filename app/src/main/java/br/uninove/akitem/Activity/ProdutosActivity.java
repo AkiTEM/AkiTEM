@@ -9,8 +9,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -170,7 +168,7 @@ public class ProdutosActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.principal_activity, menu);
+        getMenuInflater().inflate(R.menu.produtos_activity, menu);
         return true;
     }
 

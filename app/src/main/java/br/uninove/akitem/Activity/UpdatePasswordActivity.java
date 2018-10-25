@@ -1,10 +1,13 @@
 package br.uninove.akitem.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,27 +22,37 @@ import com.google.firebase.crash.FirebaseCrash;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+
+import br.uninove.akitem.Entidades.Usuarios;
 import br.uninove.akitem.R;
 
 import br.uninove.akitem.Activity.Domain.User;
 
 public class UpdatePasswordActivity extends AppCompatActivity implements ValueEventListener {
-    private Toolbar toolbar;
-    private User user;
+
+    private Button btnVoltarTelaInicial;
+    private Usuarios usuarios;
     private EditText newPassword;
     private EditText password;
-
-    private FirebaseAuth mAuth;
+    private FirebaseAuth autenticacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_password);
 
-        //toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-        mAuth = FirebaseAuth.getInstance();
+        btnVoltarTelaInicial = (Button) findViewById(R.id.btnVoltarTelaInicial);
+
+        btnVoltarTelaInicial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                voltarTelaInicial();
+            }
+        });
+
+        autenticacao = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -49,32 +62,31 @@ public class UpdatePasswordActivity extends AppCompatActivity implements ValueEv
     }
 
     private void init(){
-        //toolbar.setTitle( getResources().getString(R.string.update_password) );
         newPassword = (EditText) findViewById(R.id.new_password);
         password = (EditText) findViewById(R.id.password);
 
-        user = new User();
-        user.setId( mAuth.getCurrentUser().getUid() );
-        user.contextDataDB( this );
+        usuarios = new Usuarios();
+        usuarios.setId( autenticacao.getCurrentUser().getUid() );
+        usuarios.contextDataDB( this );
     }
 
     public void update( View view ){
-        user.setNewPassword( newPassword.getText().toString() );
-        user.setPassword( password.getText().toString() );
+        usuarios.setNewPassword( newPassword.getText().toString() );
+        usuarios.setSenha( password.getText().toString() );
 
         reauthenticate();
     }
 
     private void reauthenticate(){
-        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+        FirebaseUser firebaseUser = autenticacao.getCurrentUser();
 
         if( firebaseUser == null ){
             return;
         }
 
         AuthCredential credential = EmailAuthProvider.getCredential(
-                user.getEmail(),
-                user.getPassword()
+                usuarios.getEmail(),
+                usuarios.getSenha()
         );
 
         firebaseUser.reauthenticate( credential )
@@ -101,17 +113,17 @@ public class UpdatePasswordActivity extends AppCompatActivity implements ValueEv
     }
 
     private void updateData(){
-        user.setNewPassword( newPassword.getText().toString() );
-        user.setPassword( password.getText().toString() );
+        usuarios.setNewPassword( newPassword.getText().toString() );
+        usuarios.setSenha( password.getText().toString() );
 
-        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+        FirebaseUser firebaseUser = autenticacao.getCurrentUser();
 
         if( firebaseUser == null ){
             return;
         }
 
         firebaseUser
-                .updatePassword( user.getNewPassword() )
+                .updatePassword( usuarios.getSenha() )
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -143,12 +155,18 @@ public class UpdatePasswordActivity extends AppCompatActivity implements ValueEv
 
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
-        User u = dataSnapshot.getValue( User.class );
-        user.setEmail( u.getEmail() );
+        Usuarios usuarios = dataSnapshot.getValue( Usuarios.class );
+        usuarios.setEmail( usuarios.getEmail() );
     }
 
     @Override
     public void onCancelled(DatabaseError firebaseError) {
         FirebaseCrash.report( firebaseError.toException() );
+    }
+
+    private void voltarTelaInicial() {
+        Intent intent = new Intent(UpdatePasswordActivity.this, PrincipalActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

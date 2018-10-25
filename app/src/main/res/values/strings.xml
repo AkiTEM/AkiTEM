@@ -6,7 +6,7 @@
     <string name="reset">RECUPERAR SENHA</string>
     <string name="logout">LOGOUT</string>
     <string name="update_login"></string>
-    <string name="update_password"></string>
+    <string name="update_password">ATUALIZAR SENHA</string>
     <string name="remove_user">REMOVER USUÁRIO</string>
     <string name="reset_bt_label">RESETAR SENHA</string>
     <string name="title_activity_login">Login</string>

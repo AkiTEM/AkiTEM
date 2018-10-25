@@ -47,7 +47,7 @@ public class PrincipalActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.logout, menu);
+        getMenuInflater().inflate(R.menu.principal_activity, menu);
         return true;
     }
 
@@ -71,10 +71,15 @@ public class PrincipalActivity extends AppCompatActivity {
         //}
 
         //noinspection SimplifiableIfStatement
-        //if (id == R.id.action_update_password) {
-            //updatePassword();
+        if (id == R.id.action_update_password) {
+            updatePassword();
         //    Toast.makeText(PrincipalActivity.this, "Em implementação, aguarde...novidades!", Toast.LENGTH_SHORT).show();
-        //}
+        }
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_remove_user) {
+            remove_user();
+        }
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.logout) {
@@ -115,6 +120,11 @@ public class PrincipalActivity extends AppCompatActivity {
 
     public void updatePassword() {
         Intent intent = new Intent(PrincipalActivity.this, UpdatePasswordActivity.class);
+        startActivity(intent);
+    }
+
+    private void remove_user() {
+        Intent intent = new Intent(PrincipalActivity.this, RemoveUserActivity.class);
         startActivity(intent);
     }
 

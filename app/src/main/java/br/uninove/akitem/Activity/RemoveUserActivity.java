@@ -167,7 +167,7 @@ public class RemoveUserActivity extends AppCompatActivity
     }
 
     private void voltarTelaInicial() {
-        Intent intent = new Intent(RemoveUserActivity.this, LoginActivity.class);
+        Intent intent = new Intent(RemoveUserActivity.this, PrincipalActivity.class);
         startActivity(intent);
         finish();
     }

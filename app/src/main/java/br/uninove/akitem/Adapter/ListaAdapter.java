@@ -40,8 +40,13 @@ public class ListaAdapter extends ArrayAdapter<Lista> {
             TextView textViewProduto = (TextView) view.findViewById(R.id.textViewProduto);
             TextView textViewValor = (TextView) view.findViewById(R.id.textViewValor);
             ImageView imagem = (ImageView) view.findViewById(R.id.imagem_estabelecimento);
+            ImageView imagem2 = (ImageView) view.findViewById(R.id.AddLista);
 
             Lista lista = listas.get(position);
+
+            if ("Total".equals(lista.getMarca()))
+                imagem2.setImageResource(0);
+
             textViewMarca.setText(lista.getMarca());
             if (!"".equals(lista.getProduto()))
                 textViewProduto.setText(lista.getProduto());

@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:text="PRODUTO" />
 
-    <AutoCompleteTextView
+    <EditText
         android:id="@+id/edtProduto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:text="MARCA" />
 
-    <AutoCompleteTextView
+    <EditText
         android:id="@+id/edtMarca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

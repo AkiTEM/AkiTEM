@@ -24,7 +24,6 @@
         android:maxLength="50"
         android:hint="E-MAIL"
         android:maxLines="1"
-        android:singleLine="true"
         android:inputType="textEmailAddress" />
 
     <EditText

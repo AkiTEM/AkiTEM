@@ -118,7 +118,7 @@ public class ListaActivity extends AppCompatActivity {
 
     private boolean deletaLista(String email, String estabaleciomento, String marca, String produto) {
         try {
-            firebase = ConfiguracaoFirebase.getFirebase().child("Lista").child(email);
+            firebase = ConfiguracaoFirebase.getFirebase().child("Lista");
             firebase.removeValue();
             Toast.makeText(ListaActivity.this, "Item excluido com sucesso", Toast.LENGTH_LONG).show();
             return true;

@@ -33,7 +33,6 @@
                 android:hint="E-mail"
                 android:maxLength="50"
                 android:maxLines="1"
-                android:singleLine="true"
                 android:inputType="textEmailAddress" />
 
             <EditText

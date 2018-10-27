@@ -28,7 +28,6 @@
         android:layout_height="wrap_content"
         android:maxLength="20"
         android:maxLines="1"
-        android:singleLine="true"
         android:inputType="textImeMultiLine" />
 
     <TextView
@@ -42,7 +41,6 @@
         android:layout_height="wrap_content"
         android:maxLength="20"
         android:maxLines="1"
-        android:singleLine="true"
         android:inputType="textImeMultiLine" />
 
     <CheckBox

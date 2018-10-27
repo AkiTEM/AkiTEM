@@ -57,6 +57,13 @@ public class ListaActivity extends AppCompatActivity {
         adapter = new ListaAdapter(this, lista);
         listView.setAdapter(adapter);
 
+        listView.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                deletaLista(email,lista.get(position).getEstabaleciomento(),lista.get(position).getMarca(),lista.get(position).getProduto());
+            }
+        });
+
         firebase = ConfiguracaoFirebase.getFirebase().child("Lista");
 
         valueEventListenerLista = new ValueEventListener() {
@@ -107,6 +114,19 @@ public class ListaActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private boolean deletaLista(String email, String estabaleciomento, String marca, String produto) {
+        try {
+            firebase = ConfiguracaoFirebase.getFirebase().child("Lista").child(email);
+            firebase.removeValue();
+            Toast.makeText(ListaActivity.this, "Item excluido com sucesso", Toast.LENGTH_LONG).show();
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     private void voltarTelaInicial() {

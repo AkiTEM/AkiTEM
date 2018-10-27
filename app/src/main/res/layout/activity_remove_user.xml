@@ -7,5 +7,4 @@
     tools:context=".Activity.RemoveUserActivity">
 
     <include layout="@layout/content_remove_user" />
-
 </android.support.constraint.ConstraintLayout>

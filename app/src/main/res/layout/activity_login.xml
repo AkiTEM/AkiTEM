@@ -17,12 +17,14 @@
         android:layout_height="300dp"
         android:src="@mipmap/logo" />
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/edtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLength="50"
         android:hint="E-MAIL"
+        android:maxLines="1"
+        android:singleLine="true"
         android:inputType="textEmailAddress" />
 
     <EditText

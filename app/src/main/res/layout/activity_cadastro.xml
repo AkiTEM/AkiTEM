@@ -13,58 +13,45 @@
 
     <ImageView
         android:id="@+id/imagemFragmentFotos"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:src="@mipmap/logo" />
 
-    <ScrollView
+    <EditText
+        android:id="@+id/edtCadEmail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:hint="E-mail"
+        android:maxLength="50"
+        android:maxLines="1"
+        android:inputType="textEmailAddress" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <EditText
+        android:id="@+id/edtCadSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Senha"
+        android:maxLength="10"
+        android:inputType="textPassword" />
 
-            <EditText
-                android:id="@+id/edtCadEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="E-mail"
-                android:maxLength="50"
-                android:maxLines="1"
-                android:inputType="textEmailAddress" />
+    <EditText
+        android:id="@+id/edtCadConfirmarSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Confirma Senha"
+        android:maxLength="10"
+        android:inputType="textPassword" />
 
-            <EditText
-                android:id="@+id/edtCadSenha"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Senha"
-                android:maxLength="10"
-                android:inputType="textPassword" />
+    <Button
+        android:id="@+id/btnGravar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="SALVAR" />
 
-            <EditText
-                android:id="@+id/edtCadConfirmarSenha"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Confirma Senha"
-                android:maxLength="10"
-                android:inputType="textPassword" />
-
-            <Button
-                android:id="@+id/btnGravar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                android:text="SALVAR" />
-
-            <Button
-                android:id="@+id/btnVoltarTelaInicial"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="VOLTAR TELA INICIAL" />
-        </LinearLayout>
-
-    </ScrollView>
-
+    <Button
+        android:id="@+id/btnVoltarTelaInicial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VOLTAR TELA INICIAL" />
 </LinearLayout>

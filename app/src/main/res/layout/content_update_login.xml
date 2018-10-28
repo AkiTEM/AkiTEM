@@ -13,8 +13,8 @@
 
     <ImageView
         android:id="@+id/imagemFragmentFotos"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:src="@mipmap/logo" />
 
     <android.support.design.widget.TextInputLayout
@@ -22,21 +22,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!--<AutoCompleteTextView-->
         <EditText
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/prompt_new_email"
+            android:maxLength="50"
             android:maxLines="1"
             android:inputType="textEmailAddress" />
     </android.support.design.widget.TextInputLayout>
 
     <TextView
+        android:id="@+id/tv_info"
         android:padding="5dp"
         android:background="#ffc"
         android:layout_marginRight="4dp"
         android:layout_marginLeft="4dp"
-        android:id="@+id/tv_info"
         android:layout_below="@+id/v_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -32,8 +32,8 @@ public class UpdateLoginActivity extends AppCompatActivity implements ValueEvent
 
     private Button btnVoltarTelaInicial5;
     private Usuarios usuarios;
-    private AutoCompleteTextView newEmail;
-    private EditText password;
+    //private AutoCompleteTextView newEmail;
+    private EditText newEmail, password;
     private String email;
 
     private FirebaseAuth autenticacao;
@@ -65,8 +65,9 @@ public class UpdateLoginActivity extends AppCompatActivity implements ValueEvent
     }
 
     private void init(){
+        //newEmail = (AutoCompleteTextView) findViewById(R.id.email);
+        newEmail = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
-        newEmail = (AutoCompleteTextView) findViewById(R.id.email);
 
         usuarios = new Usuarios();
         usuarios.setId(autenticacao.getCurrentUser().getUid());

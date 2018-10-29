@@ -39,6 +39,7 @@ public class ProdutosActivity extends AppCompatActivity {
     private DatabaseReference firebase;
     private ValueEventListener valueEventListenerProdutos;
     private Button btnVoltarTelaInicial;
+    private String marca, produto;
     private Lista lista;
 
     @Override
@@ -49,8 +50,8 @@ public class ProdutosActivity extends AppCompatActivity {
         usuarioFirebase = ConfiguracaoFirebase.getFirebaseAutenticacao();
 
         Intent intent = getIntent();
-        final String marca = replace_to(intent.getStringExtra("marca").toUpperCase());
-        final String produto = replace_to(intent.getStringExtra("produto").toUpperCase());
+        marca = replace_to(intent.getStringExtra("marca").toUpperCase());
+        produto = replace_to(intent.getStringExtra("produto").toUpperCase());
 
         final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
         final String email  = globalVariable.getEmail();
@@ -228,6 +229,8 @@ public class ProdutosActivity extends AppCompatActivity {
 
     private void verLista() {
         Intent intent = new Intent(ProdutosActivity.this, ListaActivity.class);
+        intent.putExtra("marca", marca);
+        intent.putExtra("produto", produto);
         startActivity(intent);
         finish();
     }

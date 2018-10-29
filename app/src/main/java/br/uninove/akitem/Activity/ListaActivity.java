@@ -40,6 +40,7 @@ public class ListaActivity extends AppCompatActivity {
     private DatabaseReference firebase;
     private ValueEventListener valueEventListenerLista;
     private Button btnVoltarTelaInicial;
+    private String marca, produto;
     private Lista itemTot;
 
     @Override
@@ -48,6 +49,10 @@ public class ListaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista);
 
         usuarioFirebase = ConfiguracaoFirebase.getFirebaseAutenticacao();
+
+        Intent intent = getIntent();
+        marca = intent.getStringExtra("marca").toUpperCase();
+        produto = intent.getStringExtra("produto").toUpperCase();
 
         final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
         final String email = globalVariable.getEmail();
@@ -131,6 +136,8 @@ public class ListaActivity extends AppCompatActivity {
 
     private void voltarTelaInicial() {
         Intent intent = new Intent(ListaActivity.this, ProdutosActivity.class);
+        intent.putExtra("marca", marca);
+        intent.putExtra("produto", produto);
         startActivity(intent);
         finish();
     }

@@ -59,6 +59,11 @@ public class PrincipalActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+        if (id == R.id.carrinho) {
+            verLista();
+        }
+
+        //noinspection SimplifiableIfStatement
         if (id == R.id.action_update_login) {
             updateLogin();
         }
@@ -100,9 +105,15 @@ public class PrincipalActivity extends AppCompatActivity {
             Toast.makeText(PrincipalActivity.this, "Favor preencher os campos para busca", Toast.LENGTH_SHORT).show();
     }
 
-    public void abreCadastroUsuario() {
-        Intent intent = new Intent(PrincipalActivity.this, CadastroActivity.class);
+    private void verLista() {
+        edtMarca = (EditText) findViewById(R.id.edtMarca);
+        edtProduto = (EditText) findViewById(R.id.edtProduto);
+
+        Intent intent = new Intent(PrincipalActivity.this, ListaActivity.class);
+        intent.putExtra("marca", edtMarca.getText().toString());
+        intent.putExtra("produto", edtProduto.getText().toString());
         startActivity(intent);
+        finish();
     }
 
     public void updateLogin() {

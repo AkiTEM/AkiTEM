@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:icon="@mipmap/ic_carrinho"
+        android:id="@+id/carrinho"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/action_update_login"
         android:orderInCategory="100"
         android:title="@string/update_login"

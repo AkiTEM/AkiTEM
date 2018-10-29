@@ -135,7 +135,12 @@ public class ListaActivity extends AppCompatActivity {
     }
 
     private void voltarTelaInicial() {
-        Intent intent = new Intent(ListaActivity.this, ProdutosActivity.class);
+        Intent intent;
+        if (marca.isEmpty() && produto.isEmpty()) {
+            intent = new Intent(ListaActivity.this, PrincipalActivity.class);
+        } else
+            intent = new Intent(ListaActivity.this, ProdutosActivity.class);
+
         intent.putExtra("marca", marca);
         intent.putExtra("produto", produto);
         startActivity(intent);

@@ -130,7 +130,7 @@ public class ListaActivity extends AppCompatActivity {
     }
 
     private void voltarTelaInicial() {
-        Intent intent = new Intent(ListaActivity.this, PrincipalActivity.class);
+        Intent intent = new Intent(ListaActivity.this, ProdutosActivity.class);
         startActivity(intent);
         finish();
     }

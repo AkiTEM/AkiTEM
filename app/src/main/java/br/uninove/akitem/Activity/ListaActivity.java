@@ -60,7 +60,7 @@ public class ListaActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                deletaLista(email,lista.get(position).getEstabaleciomento(),lista.get(position).getMarca(),lista.get(position).getProduto());
+                deletaItemLista(lista.get(position).getId());
             }
         });
 
@@ -116,9 +116,9 @@ public class ListaActivity extends AppCompatActivity {
 
     }
 
-    private boolean deletaLista(String email, String estabaleciomento, String marca, String produto) {
+    private boolean deletaItemLista(String idItemProduto) {
         try {
-            firebase = ConfiguracaoFirebase.getFirebase().child("Lista").child(estabaleciomento).child(marca).child(produto);
+            firebase = ConfiguracaoFirebase.getFirebase().child("Lista").child(idItemProduto);
             firebase.removeValue();
             Toast.makeText(ListaActivity.this, "Item excluido com sucesso", Toast.LENGTH_LONG).show();
             return true;

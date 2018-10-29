@@ -2,6 +2,7 @@ package br.uninove.akitem.Entidades;
 
 public class Lista {
 
+    private String id;
     private String email;
     private String estabaleciomento;
     private String marca;
@@ -9,6 +10,14 @@ public class Lista {
     private Double valor;
 
     public Lista() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getEmail() {

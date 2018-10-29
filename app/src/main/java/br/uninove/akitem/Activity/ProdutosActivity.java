@@ -25,6 +25,7 @@ import br.uninove.akitem.DAO.ConfiguracaoFirebase;
 import br.uninove.akitem.Entidades.Lista;
 import br.uninove.akitem.Entidades.Produtos;
 import br.uninove.akitem.GlobalClass;
+import br.uninove.akitem.Helper.Base64Custom;
 import br.uninove.akitem.R;
 
 import static android.widget.AdapterView.OnItemClickListener;
@@ -65,13 +66,15 @@ public class ProdutosActivity extends AppCompatActivity {
 
                 if (email != null) {
                     lista = new Lista();
+                    String idItemProduto = Base64Custom.codificarBase64(email.concat(produtos.get(position).getEstabaleciomento()).concat(produtos.get(position).getMarca()).concat(produtos.get(position).getProduto()));
+                    lista.setId(idItemProduto);
                     lista.setEmail(email);
                     lista.setEstabaleciomento(produtos.get(position).getEstabaleciomento());
                     lista.setMarca(produtos.get(position).getMarca());
                     lista.setProduto(produtos.get(position).getProduto());
                     lista.setValor(produtos.get(position).getValor());
 
-                    salvarLista(lista);
+                    salvarLista(lista, idItemProduto);
                 } else
                     Toast.makeText(ProdutosActivity.this, "Favor logar novamente", Toast.LENGTH_SHORT).show();
             }
@@ -198,10 +201,10 @@ public class ProdutosActivity extends AppCompatActivity {
         finish();
     }
 
-    private boolean salvarLista(Lista lista) {
+    private boolean salvarLista(Lista lista, String idItemProduto) {
         try {
             firebase = ConfiguracaoFirebase.getFirebase().child("Lista");
-            firebase.child("").push().setValue(lista);
+            firebase.child(idItemProduto).setValue(lista);
             Toast.makeText(ProdutosActivity.this, "Item inserido com sucesso", Toast.LENGTH_LONG).show();
             return true;
 
